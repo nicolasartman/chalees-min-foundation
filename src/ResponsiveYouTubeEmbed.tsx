@@ -1,10 +1,20 @@
-const ResponsiveYouTubeEmbed: React.FC<{ videoId: string; title: string }> = (props) => {
+type ResponsiveYouTubeEmbedProps = {
+  videoId: string
+  title: string
+  /**
+   * Width / height (pass in a float)
+   */
+  ratio?: number
+}
+
+const ResponsiveYouTubeEmbed: React.FC<ResponsiveYouTubeEmbedProps> = (props) => {
+  const ratio = props.ratio ?? 9 / 16
   return (
     <div
       className="video"
       style={{
         position: "relative",
-        paddingBottom: "56.25%" /* 16:9 */,
+        paddingBottom: `${ratio * 100}%`,
         paddingTop: 25,
         height: 0,
       }}

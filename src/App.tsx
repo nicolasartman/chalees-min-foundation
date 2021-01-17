@@ -9,6 +9,8 @@ type BaseSectionProps = {
   isMobileLayout: boolean
 }
 
+const defaultTransitionDuration = "0.3s"
+
 const theme = deepMerge({
   global: {
     colors: {
@@ -31,7 +33,8 @@ const theme = deepMerge({
 
 const headerHeight = 60
 
-const Header = () => {
+const Header = (props: BaseSectionProps) => {
+  // const isAtPageTop = false
   const [isAtPageTop, setIsAtPageTop] = useState(true)
   useScrollPosition((scroll) => {
     if (scroll.currPos.y === 0 && !isAtPageTop) {
@@ -42,77 +45,189 @@ const Header = () => {
   })
 
   return (
-    <Box
-      tag="header"
-      direction="row"
-      align="center"
-      justify="center"
-      pad={{ left: "medium", right: "small", vertical: "small" }}
-      elevation={isAtPageTop ? "none" : "large"}
-      style={{ transition: "box-shadow 0.3s ease" }}
-    >
-      <Heading level="3" margin="none" color={white} style={{ fontWeight: 400 }}>
-        Chalees Minute Foundation
-      </Heading>
+    <Box fill style={{ position: "relative" }}>
+      <Box
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          overflow: "hidden",
+        }}
+      >
+        <Box
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            height: "100vh",
+            transition: `opacity ${defaultTransitionDuration} ease`,
+            opacity: !props.isMobileLayout && isAtPageTop ? "0" : "1",
+          }}
+          background={heroBannerBackground}
+        />
+      </Box>
+      <Box style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0 }}>
+        <Box
+          tag="header"
+          direction="row"
+          align="center"
+          justify={props.isMobileLayout ? "center" : "start"}
+          pad={{ left: "medium", right: "small", vertical: "small" }}
+          elevation={!props.isMobileLayout && isAtPageTop ? "none" : "large"}
+          style={{ transition: `box-shadow ${defaultTransitionDuration} ease` }}
+        >
+          <Heading level="3" margin="none" color={white} style={{ fontWeight: 400 }}>
+            Chalees Minute Foundation
+          </Heading>
+        </Box>
+      </Box>
     </Box>
   )
 }
 
-const HeroBanner = (props: BaseSectionProps) => (
+const HeroBanner = () => (
   <Box
     direction="row"
     flex
     overflow={{ horizontal: "hidden" }}
-    pad={{ top: `${headerHeight}px` }}
     background={heroBannerBackground}
     style={{ minHeight: "100vh", height: "100vh" }}
   >
     <Box
       fill
-      direction={props.isMobileLayout ? "column" : "row"}
+      direction={"row"}
       align="center"
       justify="center"
-      pad="xlarge"
-      gap="large"
+      gap="medium"
+      pad={{ horizontal: "20px" }}
     >
-      <Box fill="horizontal" align="end">
-        <Box
-          align={props.isMobileLayout ? "center" : "start"}
-          justify="start"
-          direction="column"
-          fill="horizontal"
-        >
+      <Box align="end" pad={{ right: "40px" }} data-dev="text">
+        <Box align={"start"} justify="start" direction="column" fill="horizontal">
           <Box fill="horizontal" align="center">
             <Heading
-              level={props.isMobileLayout ? 2 : 1}
+              level={1}
               margin="0"
               style={{ lineHeight: "1.25em" }}
-              textAlign={props.isMobileLayout ? "center" : "start"}
+              textAlign="start"
               color="white"
             >
               <Box style={{ lineHeight: "normal", fontSize: "0.5em", fontWeight: 400 }}>
                 We train teachers to promote student
               </Box>
               <Box height="10px" />
-              {props.isMobileLayout ? (
-                <span style={{ fontSize: 32 }}>
-                  Critical Thinking, Curiosity, and Communication
-                </span>
-              ) : (
-                <span style={{ fontSize: 60 }}>
+
+              <Box style={{ fontSize: 60 }}>
+                <span>
                   Critical Thinking, <br />
                   Curiosity, <span style={{ fontWeight: 300 }}>and</span> <br />
                   Communication
                 </span>
-              )}
+              </Box>
+              <Box
+                style={{
+                  fontSize: 20,
+                  fontWeight: "normal",
+                  lineHeight: "1.2em",
+                  fontStyle: "italic",
+                }}
+              >
+                Skills listed emphatically in the National Education Policy 2020.
+              </Box>
             </Heading>
           </Box>
         </Box>
       </Box>
-      <Box fill="horizontal">
-        <Box elevation="medium">
-          <ResponsiveYouTubeEmbed videoId="3LHpE-rEZjM" title="Student Driven Learning" />
+      <Box
+        elevation="medium"
+        style={{
+          position: "relative",
+          width: "calc((100vh - 40px) * 9/16)",
+          height: "calc(100vh - 40px)",
+        }}
+      >
+        <iframe
+          title="Student Driven Learning"
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+          }}
+          src={`https://www.youtube.com/embed/3LHpE-rEZjM`}
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        />
+      </Box>
+    </Box>
+  </Box>
+)
+
+const MobileHeroBanner = () => (
+  <Box
+    direction="row"
+    flex
+    overflow={{ horizontal: "hidden" }}
+    background={heroBannerBackground}
+    style={{ height: "100vh" }}
+  >
+    <Box
+      fill
+      direction="column"
+      align="center"
+      justify="center"
+      gap="large"
+      pad={{ vertical: `${headerHeight + 60}px` }}
+    >
+      <Box align="end" pad={{ right: "40px" }} data-dev="text">
+        <Box align={"center"} justify="start" direction="column" fill="horizontal">
+          <Box fill="horizontal" align="center">
+            <Heading level={2} margin="0" textAlign="center" color="white">
+              <Box style={{ lineHeight: "normal", fontSize: "0.5em", fontWeight: 400 }}>
+                We train teachers to promote student
+              </Box>
+              <Box height="10px" />
+              <Box style={{ fontSize: 32 }}>Critical Thinking, Curiosity, and Communication</Box>
+              <Box
+                style={{
+                  fontSize: 20,
+                  fontWeight: "normal",
+                  lineHeight: "1.2em",
+                  fontStyle: "italic",
+                }}
+              >
+                Skills listed emphatically in the National Education Policy 2020.
+              </Box>
+            </Heading>
+          </Box>
         </Box>
+      </Box>
+      <Box
+        elevation="medium"
+        style={{
+          position: "relative",
+          width: "calc((100vh - 40px) * 9/16)",
+          height: "calc(100vh - 40px)",
+        }}
+      >
+        <iframe
+          title="Student Driven Learning"
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+          }}
+          src={`https://www.youtube.com/embed/3LHpE-rEZjM`}
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        />
       </Box>
     </Box>
   </Box>
@@ -249,39 +364,20 @@ const App = () => {
               <Box
                 fill="horizontal"
                 direction="column"
-                style={{ position: "fixed", top: 0, left: 0, height: headerHeight, zIndex: 1 }}
+                style={{
+                  position: "fixed",
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  height: headerHeight,
+                  zIndex: 1,
+                }}
               >
-                <Box fill style={{ position: "relative" }}>
-                  <Box
-                    style={{
-                      position: "absolute",
-                      top: 0,
-                      left: 0,
-                      right: 0,
-                      bottom: 0,
-                      overflow: "hidden",
-                    }}
-                  >
-                    <Box
-                      style={{
-                        position: "absolute",
-                        top: 0,
-                        left: 0,
-                        right: 0,
-                        height: "100vh",
-                        backgroundAttachment: "",
-                      }}
-                      background={heroBannerBackground}
-                    />
-                  </Box>
-                  <Box fill style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0 }}>
-                    <Header />
-                  </Box>
-                </Box>
+                <Header isMobileLayout={isMobileLayout} />
               </Box>
 
               {/* Hero section */}
-              <HeroBanner isMobileLayout={isMobileLayout} />
+              {isMobileLayout ? <MobileHeroBanner /> : <HeroBanner />}
 
               <HowWeWorkSection isMobileLayout={isMobileLayout} />
 
