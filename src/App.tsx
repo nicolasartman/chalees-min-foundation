@@ -1,5 +1,5 @@
 import { useScrollPosition } from "@n8tb1t/use-scroll-position"
-import { Box, Grommet, Heading, Image, Markdown, ResponsiveContext } from "grommet"
+import { Box, Grommet, Heading, Image, ResponsiveContext, Stack } from "grommet"
 import { deepMerge } from "grommet/utils"
 import React, { useState } from "react"
 import { almostWhite, heroBannerBackground, purple, red, white } from "./colors"
@@ -258,106 +258,134 @@ const HowWeWorkCard = (props: CardProps) => (
 )
 
 const HowWeWorkSection = (props: BaseSectionProps) => (
-  <ResponsiveContext.Consumer>
-    {(size) => (
-      <Box direction="column" pad="large" fill="horizontal" flex="grow">
-        <Box direction="column" fill="horizontal" align="start">
-          <Heading level="1">How we work </Heading>
-          <Heading level="2" fill>
-            After our teachers have taught a chapter from the textbook, our...
-          </Heading>
-        </Box>
-        <Box direction="column" gap="40px" pad={{ vertical: "medium" }} align="start">
-          <Box fill="horizontal">
-            <HowWeWorkCard
-              title="Students ask questions"
-              text="on a topic they just finished reading from the book; a question that is interesting to them."
-              pictureSource="https://placekitten.com/50/50"
-            />
-          </Box>
-          <Box fill="horizontal">
-            <HowWeWorkCard
-              title="Students conduct research"
-              text="by asking an older sibling, or by reading a book from the library, or by searching the Internet."
-              pictureSource="https://placekitten.com/50/50"
-            />
-          </Box>
-          <Box fill="horizontal">
-            <HowWeWorkCard
-              title="Students present answers"
-              text="by coming in front of class and teaching their peers, or by making short videos."
-              pictureSource="https://placekitten.com/50/50"
-            />
-          </Box>
-        </Box>
+  <Box direction="column" pad="large" fill="horizontal" flex="grow">
+    <Box direction="column" fill="horizontal" align="start">
+      <Heading level="1" margin={{ top: "0" }}>
+        How we work
+      </Heading>
+      <Heading level="2" fill>
+        After our teachers have taught a chapter from the textbook, our...
+      </Heading>
+    </Box>
+    <Box direction="column" gap="40px" pad={{ vertical: "medium" }} align="start">
+      <Box fill="horizontal">
+        <HowWeWorkCard
+          title="Students ask questions"
+          text="on a topic they just finished reading from the book; a question that is interesting to them."
+          pictureSource="https://placekitten.com/50/50"
+        />
       </Box>
-    )}
-  </ResponsiveContext.Consumer>
+      <Box fill="horizontal">
+        <HowWeWorkCard
+          title="Students conduct research"
+          text="by asking an older sibling, or by reading a book from the library, or by searching the Internet."
+          pictureSource="https://placekitten.com/50/50"
+        />
+      </Box>
+      <Box fill="horizontal">
+        <HowWeWorkCard
+          title="Students present answers"
+          text="by coming in front of class and teaching their peers, or by making short videos."
+          pictureSource="https://placekitten.com/50/50"
+        />
+      </Box>
+    </Box>
+  </Box>
 )
 
+type StudentQuestionCardTransitionOrder = "current" | "previous" | "next"
 type StudentQuestionCardProps = {
   subject: string
-  text: string
+  chapterTopic: string
+  studentAgeText: string
+  question: string
   videoId: string
-  videoTitle: string
+  transitionOrder: StudentQuestionCardTransitionOrder
 }
 
 const StudentQuestionCard = (props: StudentQuestionCardProps) => (
-  <Box direction="row">
+  <Box
+    direction="row"
+    justify="center"
+    gap="40px"
+    style={{
+      opacity: props.transitionOrder === "current" ? 1 : 0,
+      pointerEvents: props.transitionOrder === "current" ? "auto" : "none",
+    }}
+    data-dev="StudentQuestionCard"
+  >
     <Box direction="column">
-      <Heading level="4">{props.subject}</Heading>
-      <Markdown>{props.text}</Markdown>
+      <Heading level="2">{props.subject}</Heading>
+      <Box>
+        <span>
+          After reading a chapter on{" "}
+          <span>
+            <strong>{props.chapterTopic}</strong>
+          </span>
+        </span>
+      </Box>
+      <Box>{props.studentAgeText} asked</Box>
+      <Box height="20px" />
+      <Box style={{ fontStyle: "italic" }}>"{props.question}"</Box>
     </Box>
-    <Box>
-      <ResponsiveYouTubeEmbed title={props.videoTitle} videoId={props.videoId} />
-    </Box>
-  </Box>
-)
-
-const SelectedQuestionsSection = (props: BaseSectionProps) => (
-  <Box direction="column" pad="xlarge" fill="horizontal" flex="grow" background={purple}>
-    <Box direction="column" fill="horizontal" align="center">
-      <Heading level="2">Selected Student Questions </Heading>
-    </Box>
-    <Box
-      direction={props.isMobileLayout ? "column" : "row"}
-      gap="20px"
-      pad={{ vertical: "medium" }}
-      align="center"
-    >
-      <StudentQuestionCard
-        subject="Science"
-        text={`
-After reading a chapter on **Nutrition**, an 11-year old student asked:
-
-Why do we feel hungry after physical activity?
-        `}
-        videoId="123"
-        videoTitle="Why do we feel hungry?"
-      />
-      <StudentQuestionCard
-        subject="Maths"
-        text={`
-After reading a chapter on **Nutrition**, an 11-year old student asked:
-
-Why do we feel hungry after physical activity?
-        `}
-        videoId="123"
-        videoTitle="Why do we feel hungry?"
-      />
-      <StudentQuestionCard
-        subject="English"
-        text={`
-After reading a chapter on **Nutrition**, an 11-year old student asked:
-
-Why do we feel hungry after physical activity?
-        `}
-        videoId="123"
-        videoTitle="Why do we feel hungry?"
-      />
+    <Box width="150px">
+      <ResponsiveYouTubeEmbed ratio={16 / 9} title={props.question} videoId={props.videoId} />
     </Box>
   </Box>
 )
+
+const SelectedQuestionsSection = (props: BaseSectionProps) => {
+  const [selectedCardIndex] = useState(0)
+  const getTransitionOrder = (
+    cardIndex: number,
+    selectedCardIndex: number,
+  ): StudentQuestionCardTransitionOrder => {
+    if (cardIndex < selectedCardIndex) {
+      return "previous"
+    } else if (cardIndex > selectedCardIndex) {
+      return "next"
+    } else {
+      return "current"
+    }
+  }
+  return (
+    <Box direction="column" pad="xlarge" fill="horizontal" flex="grow" background={purple}>
+      <Box direction="column" fill="horizontal" align="center">
+        <Heading level="2" style={{ marginTop: "0" }}>
+          Selected Student Questions{" "}
+        </Heading>
+      </Box>
+      <Box align="center" fill="horizontal">
+        <Stack fill>
+          <StudentQuestionCard
+            transitionOrder={getTransitionOrder(0, selectedCardIndex)}
+            subject="Science"
+            chapterTopic="Nutrition"
+            studentAgeText="an 11 year-old"
+            question="Why do we feel hungry after physical activity?"
+            videoId="xdC-9-XpEto"
+          />
+          <StudentQuestionCard
+            transitionOrder={getTransitionOrder(1, selectedCardIndex)}
+            subject="Math"
+            chapterTopic="Polynomials"
+            studentAgeText="a 15 year-old"
+            question="After reading a chapter on Polynomials, a 15-year old student asked, How will we use polynomials in a supermarket?"
+            videoId="m4XX4HNec34"
+          />
+          <StudentQuestionCard
+            transitionOrder={getTransitionOrder(2, selectedCardIndex)}
+            subject="English"
+            chapterTopic="Adjectives"
+            studentAgeText="a 12 year-old"
+            question="How can we arrange multiple adjectives in a sentence?"
+            videoId="Tc3uoxKw6d4"
+          />
+        </Stack>
+      </Box>
+    </Box>
+  )
+}
 
 const App = () => {
   return (
