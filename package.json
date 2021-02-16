@@ -6,6 +6,7 @@
     "@n8tb1t/use-scroll-position": "^2.0.3",
     "grommet": "^2.16.3",
     "grommet-icons": "^4.5.0",
+    "nuka-carousel": "^4.7.5",
     "polished": "^4.1.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",

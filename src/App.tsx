@@ -5,6 +5,7 @@ import React, { useState } from "react"
 import { BaseSectionProps } from "./BaseSectionProps"
 import { almostWhite, heroBannerBackground, red, white } from "./colors"
 import SelectedQuestionsSection from "./StudentQuestionsSection"
+import ExploreQuestionsSection from "./ExploreQuestionsSection"
 
 const defaultTransitionDuration = "0.3s"
 
@@ -321,6 +322,8 @@ const App = () => {
               <HowWeWorkSection isMobileLayout={isMobileLayout} />
 
               <SelectedQuestionsSection isMobileLayout={isMobileLayout} />
+
+              <ExploreQuestionsSection />
 
               <Box pad="xlarge">some other content</Box>
             </Box>
