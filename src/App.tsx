@@ -1,15 +1,13 @@
-import { useScrollPosition } from "@n8tb1t/use-scroll-position"
 import { base, Box, Grommet, Heading, Image, ResponsiveContext, ThemeType } from "grommet"
 import { deepMerge } from "grommet/utils"
-import React, { useState } from "react"
+import React from "react"
 import { BaseSectionProps } from "./BaseSectionProps"
-import ChaleesHeartIcon from "./ChaleesHeartIcon"
-import { almostWhite, heroBannerBackground, red, white } from "./colors"
+import { almostWhite, heroBannerBackground, red } from "./colors"
+import { headerHeight } from "./constants"
 import ExploreQuestionsSection from "./ExploreQuestionsSection"
+import Navigation from "./Navigation"
 import SectionContainer from "./SectionContainer"
 import SelectedQuestionsSection from "./StudentQuestionsSection"
-
-const defaultTransitionDuration = "0.3s"
 
 const theme = deepMerge<ThemeType, ThemeType>(base, {
   global: {
@@ -36,67 +34,6 @@ const theme = deepMerge<ThemeType, ThemeType>(base, {
     },
   },
 })
-
-const headerHeight = 60
-
-const Header = (props: BaseSectionProps) => {
-  // const isAtPageTop = false
-  const [isAtPageTop, setIsAtPageTop] = useState(true)
-  useScrollPosition((scroll) => {
-    if (scroll.currPos.y === 0 && !isAtPageTop) {
-      setIsAtPageTop(true)
-    } else if (isAtPageTop) {
-      setIsAtPageTop(false)
-    }
-  })
-
-  return (
-    <Box fill style={{ position: "relative" }}>
-      <Box
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          overflow: "hidden",
-        }}
-      >
-        <Box
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            height: "100vh",
-            transition: `opacity ${defaultTransitionDuration} ease`,
-            opacity: !props.isMobileLayout && isAtPageTop ? "0" : "1",
-          }}
-          background={heroBannerBackground}
-        />
-      </Box>
-      <Box style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0 }}>
-        <Box
-          tag="header"
-          direction="row"
-          align="center"
-          justify={props.isMobileLayout ? "center" : "start"}
-          pad={{ left: "medium", right: "small", vertical: "small" }}
-          elevation={!props.isMobileLayout && isAtPageTop ? "none" : "large"}
-          style={{ transition: `box-shadow ${defaultTransitionDuration} ease` }}
-        >
-          <Box style={{ color: "white" }}>
-            <ChaleesHeartIcon />
-          </Box>
-          <Box width="10px" />
-          <Heading level="3" margin="none" color={white} style={{ fontWeight: 400 }}>
-            Chalees Minute Foundation
-          </Heading>
-        </Box>
-      </Box>
-    </Box>
-  )
-}
 
 const HeroBanner = () => (
   <Box
@@ -154,8 +91,8 @@ const HeroBanner = () => (
         elevation="medium"
         style={{
           position: "relative",
-          width: "calc((100vh - 40px) * 9/16)",
-          height: "calc(100vh - 40px)",
+          width: `calc((100vh - ${headerHeight}px - 40px) * 9/16)`,
+          height: `calc(100vh - ${headerHeight}px - 40px)`,
         }}
       >
         <iframe
@@ -220,8 +157,8 @@ const MobileHeroBanner = () => (
         elevation="medium"
         style={{
           position: "relative",
-          width: "calc((100vh - 40px) * 9/16)",
-          height: "calc(100vh - 40px)",
+          width: `calc((100vh - ${headerHeight}px - 40px) * 9/16)`,
+          height: `calc(100vh - ${headerHeight}px - 40px)`,
         }}
       >
         <iframe
@@ -327,10 +264,9 @@ const App = () => {
                   zIndex: 1,
                 }}
               >
-                <Header isMobileLayout={isMobileLayout} />
+                <Navigation isMobileLayout={isMobileLayout} />
               </Box>
 
-              {/* Hero section */}
               {isMobileLayout ? <MobileHeroBanner /> : <HeroBanner />}
 
               <HowWeWorkSection isMobileLayout={isMobileLayout} />
