@@ -6,6 +6,7 @@ import { BaseSectionProps } from "./BaseSectionProps"
 import { almostWhite, heroBannerBackground, red, white } from "./colors"
 import SelectedQuestionsSection from "./StudentQuestionsSection"
 import ExploreQuestionsSection from "./ExploreQuestionsSection"
+import ChaleesHeartIcon from "./ChaleesHeartIcon"
 
 const defaultTransitionDuration = "0.3s"
 
@@ -76,6 +77,10 @@ const Header = (props: BaseSectionProps) => {
           elevation={!props.isMobileLayout && isAtPageTop ? "none" : "large"}
           style={{ transition: `box-shadow ${defaultTransitionDuration} ease` }}
         >
+          <Box style={{ color: "white" }}>
+            <ChaleesHeartIcon />
+          </Box>
+          <Box width="10px" />
           <Heading level="3" margin="none" color={white} style={{ fontWeight: 400 }}>
             Chalees Minute Foundation
           </Heading>
@@ -111,7 +116,7 @@ const HeroBanner = () => (
               textAlign="start"
               color="white"
             >
-              <Box style={{ lineHeight: "normal", fontSize: "0.5em", fontWeight: 400 }}>
+              <Box style={{ lineHeight: "normal", fontSize: 25, fontWeight: 400 }}>
                 We train teachers to promote student
               </Box>
               <Box height="10px" />
@@ -124,14 +129,14 @@ const HeroBanner = () => (
                 </span>
               </Box>
               <Box
+                pad={{ top: "5px" }}
                 style={{
-                  fontSize: 20,
+                  fontSize: 25,
+                  lineHeight: "normal",
                   fontWeight: "normal",
-                  lineHeight: "1.2em",
-                  fontStyle: "italic",
                 }}
               >
-                Skills listed emphatically in the National Education Policy 2020.
+                —Skills listed emphatically in the National Education Policy 2020.
               </Box>
             </Heading>
           </Box>
