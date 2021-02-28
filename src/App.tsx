@@ -328,7 +328,7 @@ const App = () => {
 
               <SelectedQuestionsSection isMobileLayout={isMobileLayout} />
 
-              <ExploreQuestionsSection />
+              <ExploreQuestionsSection size={size} />
 
               <Box pad="xlarge">some other content</Box>
             </Box>

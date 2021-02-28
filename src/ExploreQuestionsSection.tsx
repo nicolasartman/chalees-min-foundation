@@ -1,4 +1,5 @@
-import { Box, Heading, Image } from "grommet"
+import { Box, Heading, Image, Button } from "grommet"
+import { desaturate, transparentize } from "polished"
 import Carousel from "nuka-carousel"
 import image1 from "./images/satellites.png"
 import image2 from "./images/fruits.jpeg"
@@ -12,6 +13,7 @@ import cylinder from "./images/cylinder.png"
 import snakesHearing from "./images/snakesHearing.jpeg"
 import moonHalf from "./images/moonHalf.png"
 import mango from "./images/mango.png"
+import { almostWhite, purple, red, darkRed, lavender, goldenrod, powderBlue } from "./colors"
 
 type QuestionCardProps = {
   priority: number
@@ -19,16 +21,23 @@ type QuestionCardProps = {
   studentName: string
   grade: number
   image: string
+  backgroundColor: string
 }
 const QuestionCard = (props: QuestionCardProps) => {
+  const ratio = 12 / 9
+
   return (
     <Box
       style={{
         position: "relative",
-        height: "512px",
+        paddingBottom: `${ratio * 100}%`,
+        paddingTop: 25,
+        height: 0,
       }}
     >
-      <Image fit="cover" src={props.image} fill={false} />
+      <Box style={{ position: "absolute", height: "100%", width: "100%" }}>
+        <Image fit="cover" src={props.image} fill={false} />
+      </Box>
       <Box
         style={{
           position: "absolute",
@@ -40,25 +49,35 @@ const QuestionCard = (props: QuestionCardProps) => {
         <Box direction="column" align="center" justify="center" fill>
           <Box
             background={{
-              color: "light-1",
-              opacity: 0.8,
+              color: transparentize(0.5, desaturate(0.1, props.backgroundColor)),
+              opacity: 0.9,
             }}
             align={"center"}
             justify="center"
-            elevation={"medium"}
-            width={"80%"}
-            pad={"40px"}
-            round
+            width={"100%"}
+            height={"100%"}
+            pad={"60px"}
           >
-            <Box>
-              <span style={{ textAlign: "center", textShadow: "0 2px 0 4px rgba(0,0,0,0.1)" }}>
-                <strong>{props.question}</strong>
-              </span>
+            <Box
+              style={{
+                fontWeight: 500,
+                textAlign: "center",
+                textShadow: "0 2px 0 4px rgba(0,0,0,0.1)",
+                fontSize: "40px",
+                lineHeight: "normal",
+              }}
+            >
+              {props.question}
             </Box>
-            <Box>
-              <span style={{ textAlign: "center", textShadow: "0 2px 0 4px rgba(0,0,0,0.1)" }}>
-                {props.studentName}, Grade {props.grade}
-              </span>
+            <Box height={"25px"} />
+            <Box
+              style={{
+                textAlign: "center",
+                textShadow: "0 2px 0 4px rgba(0,0,0,0.1)",
+                fontSize: "24px",
+              }}
+            >
+              {props.studentName}, Grade {props.grade}
             </Box>
           </Box>
         </Box>
@@ -67,97 +86,124 @@ const QuestionCard = (props: QuestionCardProps) => {
   )
 }
 
-const ExploreQuestionsSection = () => {
+type ExploreQuestionsSectionProps = {
+  size: string
+}
+
+const ExploreQuestionsSection = (props: ExploreQuestionsSectionProps) => {
+  const colors = [red, purple, almostWhite, goldenrod, darkRed, lavender, powderBlue]
+  const slidesToShow = props.size === "small" ? 1 : props.size === "mediumSmall" ? 2 : 3
+  const cardProps = [
+    {
+      priority: 1,
+      question: "Why don't satellites fall out of the sky?",
+      studentName: "Aditya",
+      grade: 8,
+      image: image1,
+    },
+    {
+      priority: 1,
+      question: "Why do fruits change their color?",
+      studentName: "Nigaaz Nashreen",
+      grade: 6,
+      image: image2,
+    },
+    {
+      priority: 1,
+      question: "Which country first gave women the right to vote?",
+      studentName: "Nandini Vashisht",
+      grade: 10,
+      image: image3,
+    },
+    {
+      priority: 1,
+      question: "What is the reason behind an earthquake?",
+      studentName: "Akash",
+      grade: 7,
+      image: image4,
+    },
+    {
+      priority: 1,
+      question: "Why does an air conditioner drip water?",
+      studentName: "Malek Abrar Ishakbhai",
+      grade: 7,
+      image: image5,
+    },
+    {
+      priority: 2,
+      question: "Why does an eagle stop flapping its wings after reaching some height?",
+      studentName: "Arti",
+      grade: 7,
+      image: eagleFlyingPatterns,
+    },
+    {
+      priority: 2,
+      question: "Who was Napoleon and what did he do?",
+      studentName: "Altaf",
+      grade: 10,
+      image: napoleon,
+    },
+    {
+      priority: 2,
+      question: "What is global warming?",
+      studentName: "Hetal Girishbhai",
+      grade: 8,
+      image: globalWarming,
+    },
+    {
+      priority: 2,
+      question: "What are the uses of a cylinder?",
+      studentName: "Aman",
+      grade: 8,
+      image: cylinder,
+    },
+    {
+      priority: 2,
+      question: "Snakes don't have any ears. How are they able to hear?",
+      studentName: "Anjuman Banu",
+      grade: 7,
+      image: snakesHearing,
+    },
+    {
+      priority: 2,
+      question: "Why does the moon look half?",
+      studentName: "Saiba",
+      grade: 7,
+      image: moonHalf,
+    },
+    {
+      priority: 2,
+      question: "Why is mango called the king of fruits?",
+      studentName: "Jatin",
+      grade: 5,
+      image: mango,
+    },
+  ]
   return (
     <Box direction="column">
       <Box direction="column" align="center">
         <Heading level="2">Explore Student Questions</Heading>
       </Box>
-      <Carousel heightMode="current" slidesToShow={4} wrapAround renderBottomCenterControls={null}>
-        <QuestionCard
-          priority={1}
-          question="Why don't satellites fall out of the sky?"
-          studentName="Aditya"
-          grade={8}
-          image={image1}
-        />
-        <QuestionCard
-          priority={1}
-          question="Why do fruits change their color?"
-          studentName="Nigaaz Nashreen"
-          grade={6}
-          image={image2}
-        />
-        <QuestionCard
-          priority={1}
-          question="Which country first gave women the right to vote?"
-          studentName="Nandini Vashisht"
-          grade={10}
-          image={image3}
-        />
-        <QuestionCard
-          priority={1}
-          question="What is the reason behind an earthquake?"
-          studentName="Akash"
-          grade={7}
-          image={image4}
-        />
-        <QuestionCard
-          priority={1}
-          question="Why does an air conditioner drip water?"
-          studentName="Malek Abrar Ishakbhai"
-          grade={7}
-          image={image5}
-        />
-        <QuestionCard
-          priority={2}
-          question={"Why does an eagle stop flapping its wings after reaching some height?"}
-          studentName={"Arti"}
-          grade={7}
-          image={eagleFlyingPatterns}
-        />
-        <QuestionCard
-          priority={2}
-          question={"Who was Napoleon and what did he do?"}
-          studentName={"Altaf"}
-          grade={10}
-          image={napoleon}
-        />
-        <QuestionCard
-          priority={2}
-          question={"What is global warming?"}
-          studentName={"Hetal Girishbhai"}
-          grade={8}
-          image={globalWarming}
-        />
-        <QuestionCard
-          priority={2}
-          question={"What are the uses of a cylinder?"}
-          studentName={"Aman"}
-          grade={8}
-          image={cylinder}
-        />
-        <QuestionCard
-          priority={2}
-          question={"Snakes don't have any ears. How are they able to hear?"}
-          studentName={"Anjuman Banu"}
-          grade={7}
-          image={snakesHearing}
-        />
-        <QuestionCard
-          priority={2}
-          question={"Why does the moon look half?"}
-          studentName={"Saiba"}
-          grade={7}
-          image={moonHalf}
-        />
-        <QuestionCard
-          priority={2}
-          question={"Why is mango called the king of fruits?"}
-          studentName={"Jatin"}
-          grade={5}
-          image={mango}
-        />
+      <Carousel
+        heightMode="current"
+        slidesToShow={slidesToShow}
+        wrapAround
+        renderBottomCenterControls={null}
+        speed={1000}
+        renderCenterLeftControls={({ previousSlide }) => (
+          <Button style={{ height: "100px" }} onClick={previousSlide}>
+            <Box style={{ fontSize: "72px", paddingLeft: "10px" }}>&#9668;</Box>️
+          </Button>
+        )}
+        renderCenterRightControls={({ nextSlide }) => (
+          <Button style={{ height: "100px" }} onClick={nextSlide}>
+            <Box style={{ fontSize: "48px", paddingRight: "10px" }}>&#9658;</Box>️
+          </Button>
+        )}
+      >
+        {cardProps.map((props, index) => (
+          <QuestionCard {...props} backgroundColor={colors[index % colors.length]} />
+        ))}
       </Carousel>
     </Box>
   )
