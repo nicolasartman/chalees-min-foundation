@@ -1,16 +1,17 @@
 import { useScrollPosition } from "@n8tb1t/use-scroll-position"
-import { Box, Grommet, Heading, Image, ResponsiveContext } from "grommet"
+import { base, Box, Grommet, Heading, Image, ResponsiveContext, ThemeType } from "grommet"
 import { deepMerge } from "grommet/utils"
 import React, { useState } from "react"
 import { BaseSectionProps } from "./BaseSectionProps"
-import { almostWhite, heroBannerBackground, red, white } from "./colors"
-import SelectedQuestionsSection from "./StudentQuestionsSection"
-import ExploreQuestionsSection from "./ExploreQuestionsSection"
 import ChaleesHeartIcon from "./ChaleesHeartIcon"
+import { almostWhite, heroBannerBackground, red, white } from "./colors"
+import ExploreQuestionsSection from "./ExploreQuestionsSection"
+import SectionContainer from "./SectionContainer"
+import SelectedQuestionsSection from "./StudentQuestionsSection"
 
 const defaultTransitionDuration = "0.3s"
 
-const theme = deepMerge({
+const theme = deepMerge<ThemeType, ThemeType>(base, {
   global: {
     colors: {
       background: almostWhite,
@@ -23,8 +24,13 @@ const theme = deepMerge({
     },
     breakpoints: {
       mediumSmall: {
-        value: "1200",
+        value: 1200,
       },
+    },
+  },
+  heading: {
+    extend: {
+      margin: 0,
     },
   },
 })
@@ -261,39 +267,40 @@ const HowWeWorkCard = (props: CardProps) => (
 )
 
 const HowWeWorkSection = (props: BaseSectionProps) => (
-  <Box direction="column" pad="large" fill="horizontal" flex="grow">
-    <Box direction="column" fill="horizontal" align="start">
-      <Heading level="1" margin={{ top: "0" }}>
-        How we work
-      </Heading>
-      <Heading level="2" fill>
-        After our teachers have taught a chapter from the textbook, our...
-      </Heading>
+  <SectionContainer flex="grow">
+    <Box pad={{ horizontal: "40px" }}>
+      <Box direction="column" fill="horizontal" align="start">
+        <Heading level={2} margin="0">
+          How we work
+        </Heading>
+        <Box fill>After our teachers have taught a chapter from the textbook, our...</Box>
+      </Box>
+      <Box height="20px" />
+      <Box direction="column" gap="40px" pad={{ vertical: "medium" }} align="start">
+        <Box fill="horizontal">
+          <HowWeWorkCard
+            title="Students ask questions"
+            text="on a topic they just finished reading from the book; a question that is interesting to them."
+            pictureSource="https://placekitten.com/50/50"
+          />
+        </Box>
+        <Box fill="horizontal">
+          <HowWeWorkCard
+            title="Students conduct research"
+            text="by asking an older sibling, or by reading a book from the library, or by searching the Internet."
+            pictureSource="https://placekitten.com/50/50"
+          />
+        </Box>
+        <Box fill="horizontal">
+          <HowWeWorkCard
+            title="Students present answers"
+            text="by coming in front of class and teaching their peers, or by making short videos."
+            pictureSource="https://placekitten.com/50/50"
+          />
+        </Box>
+      </Box>
     </Box>
-    <Box direction="column" gap="40px" pad={{ vertical: "medium" }} align="start">
-      <Box fill="horizontal">
-        <HowWeWorkCard
-          title="Students ask questions"
-          text="on a topic they just finished reading from the book; a question that is interesting to them."
-          pictureSource="https://placekitten.com/50/50"
-        />
-      </Box>
-      <Box fill="horizontal">
-        <HowWeWorkCard
-          title="Students conduct research"
-          text="by asking an older sibling, or by reading a book from the library, or by searching the Internet."
-          pictureSource="https://placekitten.com/50/50"
-        />
-      </Box>
-      <Box fill="horizontal">
-        <HowWeWorkCard
-          title="Students present answers"
-          text="by coming in front of class and teaching their peers, or by making short videos."
-          pictureSource="https://placekitten.com/50/50"
-        />
-      </Box>
-    </Box>
-  </Box>
+  </SectionContainer>
 )
 
 const App = () => {

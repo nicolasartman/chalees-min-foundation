@@ -14,6 +14,7 @@ import snakesHearing from "./images/snakesHearing.jpeg"
 import moonHalf from "./images/moonHalf.png"
 import mango from "./images/mango.png"
 import { almostWhite, purple, red, darkRed, lavender, goldenrod, powderBlue } from "./colors"
+import SectionContainer from "./SectionContainer"
 
 type QuestionCardProps = {
   priority: number
@@ -38,14 +39,7 @@ const QuestionCard = (props: QuestionCardProps) => {
       <Box style={{ position: "absolute", height: "100%", width: "100%" }}>
         <Image fit="cover" src={props.image} fill={false} />
       </Box>
-      <Box
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-        }}
-        fill
-      >
+      <Box style={{ position: "absolute", top: 0, left: 0 }} fill>
         <Box direction="column" align="center" justify="center" fill>
           <Box
             background={{
@@ -63,7 +57,7 @@ const QuestionCard = (props: QuestionCardProps) => {
                 fontWeight: 500,
                 textAlign: "center",
                 textShadow: "0 2px 0 4px rgba(0,0,0,0.1)",
-                fontSize: "40px",
+                fontSize: "32px",
                 lineHeight: "normal",
               }}
             >
@@ -90,98 +84,101 @@ type ExploreQuestionsSectionProps = {
   size: string
 }
 
+const colors = [red, purple, almostWhite, goldenrod, darkRed, lavender, powderBlue]
+
+const cards = [
+  {
+    priority: 1,
+    question: "Why don't satellites fall out of the sky?",
+    studentName: "Aditya",
+    grade: 8,
+    image: image1,
+  },
+  {
+    priority: 1,
+    question: "Why do fruits change their color?",
+    studentName: "Nigaaz Nashreen",
+    grade: 6,
+    image: image2,
+  },
+  {
+    priority: 1,
+    question: "Which country first gave women the right to vote?",
+    studentName: "Nandini Vashisht",
+    grade: 10,
+    image: image3,
+  },
+  {
+    priority: 1,
+    question: "What is the reason behind an earthquake?",
+    studentName: "Akash",
+    grade: 7,
+    image: image4,
+  },
+  {
+    priority: 1,
+    question: "Why does an air conditioner drip water?",
+    studentName: "Malek Abrar Ishakbhai",
+    grade: 7,
+    image: image5,
+  },
+  {
+    priority: 2,
+    question: "Why does an eagle stop flapping its wings after reaching some height?",
+    studentName: "Arti",
+    grade: 7,
+    image: eagleFlyingPatterns,
+  },
+  {
+    priority: 2,
+    question: "Who was Napoleon and what did he do?",
+    studentName: "Altaf",
+    grade: 10,
+    image: napoleon,
+  },
+  {
+    priority: 2,
+    question: "What is global warming?",
+    studentName: "Hetal Girishbhai",
+    grade: 8,
+    image: globalWarming,
+  },
+  {
+    priority: 2,
+    question: "What are the uses of a cylinder?",
+    studentName: "Aman",
+    grade: 8,
+    image: cylinder,
+  },
+  {
+    priority: 2,
+    question: "Snakes don't have any ears. How are they able to hear?",
+    studentName: "Anjuman Banu",
+    grade: 7,
+    image: snakesHearing,
+  },
+  {
+    priority: 2,
+    question: "Why does the moon look half?",
+    studentName: "Saiba",
+    grade: 7,
+    image: moonHalf,
+  },
+  {
+    priority: 2,
+    question: "Why is mango called the king of fruits?",
+    studentName: "Jatin",
+    grade: 5,
+    image: mango,
+  },
+]
+
 const ExploreQuestionsSection = (props: ExploreQuestionsSectionProps) => {
-  const colors = [red, purple, almostWhite, goldenrod, darkRed, lavender, powderBlue]
   const slidesToShow = props.size === "small" ? 1 : props.size === "mediumSmall" ? 2 : 3
-  const cardProps = [
-    {
-      priority: 1,
-      question: "Why don't satellites fall out of the sky?",
-      studentName: "Aditya",
-      grade: 8,
-      image: image1,
-    },
-    {
-      priority: 1,
-      question: "Why do fruits change their color?",
-      studentName: "Nigaaz Nashreen",
-      grade: 6,
-      image: image2,
-    },
-    {
-      priority: 1,
-      question: "Which country first gave women the right to vote?",
-      studentName: "Nandini Vashisht",
-      grade: 10,
-      image: image3,
-    },
-    {
-      priority: 1,
-      question: "What is the reason behind an earthquake?",
-      studentName: "Akash",
-      grade: 7,
-      image: image4,
-    },
-    {
-      priority: 1,
-      question: "Why does an air conditioner drip water?",
-      studentName: "Malek Abrar Ishakbhai",
-      grade: 7,
-      image: image5,
-    },
-    {
-      priority: 2,
-      question: "Why does an eagle stop flapping its wings after reaching some height?",
-      studentName: "Arti",
-      grade: 7,
-      image: eagleFlyingPatterns,
-    },
-    {
-      priority: 2,
-      question: "Who was Napoleon and what did he do?",
-      studentName: "Altaf",
-      grade: 10,
-      image: napoleon,
-    },
-    {
-      priority: 2,
-      question: "What is global warming?",
-      studentName: "Hetal Girishbhai",
-      grade: 8,
-      image: globalWarming,
-    },
-    {
-      priority: 2,
-      question: "What are the uses of a cylinder?",
-      studentName: "Aman",
-      grade: 8,
-      image: cylinder,
-    },
-    {
-      priority: 2,
-      question: "Snakes don't have any ears. How are they able to hear?",
-      studentName: "Anjuman Banu",
-      grade: 7,
-      image: snakesHearing,
-    },
-    {
-      priority: 2,
-      question: "Why does the moon look half?",
-      studentName: "Saiba",
-      grade: 7,
-      image: moonHalf,
-    },
-    {
-      priority: 2,
-      question: "Why is mango called the king of fruits?",
-      studentName: "Jatin",
-      grade: 5,
-      image: mango,
-    },
-  ]
+
   return (
-    <Box direction="column">
-      <Box direction="column" align="center">
+    <SectionContainer>
+      <Box direction="column" align="center" pad={{ bottom: "20px" }}>
         <Heading level="2">Explore Student Questions</Heading>
       </Box>
       <Carousel
@@ -201,11 +198,11 @@ const ExploreQuestionsSection = (props: ExploreQuestionsSectionProps) => {
           </Button>
         )}
       >
-        {cardProps.map((props, index) => (
+        {cards.map((props, index) => (
           <QuestionCard {...props} backgroundColor={colors[index % colors.length]} />
         ))}
       </Carousel>
-    </Box>
+    </SectionContainer>
   )
 }
 
