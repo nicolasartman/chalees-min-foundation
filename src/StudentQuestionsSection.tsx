@@ -112,7 +112,7 @@ const SelectedQuestionsSection = (props: BaseSectionProps) => {
   // Note: all components in this need to be in this component's render function or the
   // animations will be slightly misalisnged
   return (
-    <SectionContainer flex="grow" background={purple}>
+    <SectionContainer background={purple} overflow="hidden">
       <Box fill pad={{ horizontal: "40px" }}>
         <Box direction="column" fill="horizontal" align="center" pad={{ bottom: "40px" }}>
           <Heading level="2">Selected Student Questions </Heading>
