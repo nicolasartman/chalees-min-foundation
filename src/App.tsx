@@ -6,6 +6,7 @@ import { almostWhite, heroBannerBackground, red } from "./colors"
 import { headerHeight } from "./constants"
 import ExploreQuestionsSection from "./ExploreQuestionsSection"
 import Navigation from "./Navigation"
+import ResponsiveYouTubeEmbed from "./ResponsiveYouTubeEmbed"
 import SectionContainer from "./SectionContainer"
 import SelectedQuestionsSection from "./StudentQuestionsSection"
 
@@ -81,7 +82,7 @@ const HeroBanner = () => (
                   fontWeight: "normal",
                 }}
               >
-                —Skills listed emphatically in the National Education Policy 2020.
+                — skills listed emphatically in the National Education Policy 2020.
               </Box>
             </Heading>
           </Box>
@@ -120,61 +121,39 @@ const MobileHeroBanner = () => (
     flex
     overflow={{ horizontal: "hidden" }}
     background={heroBannerBackground}
-    style={{ height: "100vh" }}
+    style={{ minHeight: "100vh" }}
   >
     <Box
       fill
       direction="column"
       align="center"
-      justify="center"
-      gap="large"
-      pad={{ vertical: `${headerHeight + 60}px` }}
+      justify="start"
+      pad={{ top: `${headerHeight}px`, bottom: "large" }}
     >
-      <Box align="end" pad={{ right: "40px" }} data-dev="text">
-        <Box align={"center"} justify="start" direction="column" fill="horizontal">
-          <Box fill="horizontal" align="center">
-            <Heading level={2} margin="0" textAlign="center" color="white">
-              <Box style={{ lineHeight: "normal", fontSize: "0.5em", fontWeight: 400 }}>
-                We train teachers to promote student
-              </Box>
-              <Box height="10px" />
-              <Box style={{ fontSize: 32 }}>Critical Thinking, Curiosity, and Communication</Box>
-              <Box
-                style={{
-                  fontSize: 20,
-                  fontWeight: "normal",
-                  lineHeight: "1.2em",
-                  fontStyle: "italic",
-                }}
-              >
-                Skills listed emphatically in the National Education Policy 2020.
-              </Box>
-            </Heading>
-          </Box>
+      <Box align="center" justify="start" direction="column" fill="horizontal">
+        <Box fill="horizontal" align="center">
+          <Heading level={2} textAlign="center" color="white">
+            <Box style={{ lineHeight: "normal", fontSize: 16, fontWeight: 400 }}>
+              We train teachers to promote student
+            </Box>
+            <Box style={{ fontSize: 24, lineHeight: "normal" }}>
+              Critical Thinking, Curiosity, and Communication
+            </Box>
+            <Box
+              style={{
+                lineHeight: "normal",
+                fontSize: 16,
+                fontWeight: 400,
+              }}
+            >
+              — skills listed emphatically in the National Education Policy 2020.
+            </Box>
+          </Heading>
         </Box>
       </Box>
-      <Box
-        elevation="medium"
-        style={{
-          position: "relative",
-          width: `calc((100vh - ${headerHeight}px - 40px) * 9/16)`,
-          height: `calc(100vh - ${headerHeight}px - 40px)`,
-        }}
-      >
-        <iframe
-          title="Student Driven Learning"
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-          }}
-          src={`https://www.youtube.com/embed/3LHpE-rEZjM`}
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        />
+      <Box height="20px" />
+      <Box width="70%" flex="grow">
+        <ResponsiveYouTubeEmbed title="splash" ratio={16 / 9} videoId="3LHpE-rEZjM" />
       </Box>
     </Box>
   </Box>
