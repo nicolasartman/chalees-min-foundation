@@ -1,6 +1,7 @@
-import { Box, Heading, Image, Button } from "grommet"
+import { Box, Heading, Image } from "grommet"
 import { desaturate, transparentize } from "polished"
-import Carousel from "nuka-carousel"
+import { useKeenSlider } from "keen-slider/react"
+import "keen-slider/keen-slider.min.css"
 import image1 from "./images/satellites.png"
 import image2 from "./images/fruits.jpeg"
 import image3 from "./images/womensVotingRights.png"
@@ -174,34 +175,27 @@ const cards = [
 ]
 
 const ExploreQuestionsSection = (props: ExploreQuestionsSectionProps) => {
-  const slidesToShow = props.size === "small" ? 1 : props.size === "mediumSmall" ? 2 : 3
+  const slidesToShow = props.size === "small" ? 1 : props.size === "mediumSmall" ? 2 : 4
+  const [ref] = useKeenSlider<HTMLDivElement>({
+    slidesPerView: slidesToShow,
+    mode: "free-snap",
+    loop: true,
+    centered: true
+  })
 
   return (
     <SectionContainer>
       <Box direction="column" align="center" pad={{ bottom: "20px" }}>
         <Heading level="2">Explore Student Questions</Heading>
       </Box>
-      <Carousel
-        heightMode="current"
-        slidesToShow={slidesToShow}
-        wrapAround
-        renderBottomCenterControls={null}
-        speed={1000}
-        renderCenterLeftControls={({ previousSlide }) => (
-          <Button style={{ height: "100px" }} onClick={previousSlide}>
-            <Box style={{ fontSize: "72px", paddingLeft: "10px" }}>&#9668;</Box>️
-          </Button>
-        )}
-        renderCenterRightControls={({ nextSlide }) => (
-          <Button style={{ height: "100px" }} onClick={nextSlide}>
-            <Box style={{ fontSize: "48px", paddingRight: "10px" }}>&#9658;</Box>️
-          </Button>
-        )}
-      >
+      <div ref={ref} className="keen-slider">
         {cards.map((props, index) => (
+          <div className="keen-slider__slide">
           <QuestionCard {...props} backgroundColor={colors[index % colors.length]} />
+          </div>
         ))}
-      </Carousel>
+      </div>
+
     </SectionContainer>
   )
 }
