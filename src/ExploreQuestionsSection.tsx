@@ -1,4 +1,4 @@
-import { Box, Heading, Image } from "grommet"
+import { Box, Heading, Image, ResponsiveContext } from "grommet"
 import { desaturate, transparentize } from "polished"
 import { useKeenSlider } from "keen-slider/react"
 import "keen-slider/keen-slider.min.css"
@@ -16,78 +16,23 @@ import moonHalf from "./images/moonHalf.png"
 import mango from "./images/mango.png"
 import { almostWhite, purple, red, darkRed, lavender, goldenrod, powderBlue } from "./colors"
 import SectionContainer from "./SectionContainer"
+import { BaseSectionProps } from "./BaseSectionProps"
 
-type QuestionCardProps = {
+type QuestionCard = {
   priority: number
   question: string
   studentName: string
   grade: number
   image: string
+}
+
+type QuestionCardProps = QuestionCard & {
   backgroundColor: string
-}
-const QuestionCard = (props: QuestionCardProps) => {
-  const ratio = 12 / 9
-
-  return (
-    <Box
-      style={{
-        position: "relative",
-        paddingBottom: `${ratio * 100}%`,
-        paddingTop: 25,
-        height: 0,
-      }}
-    >
-      <Box style={{ position: "absolute", height: "100%", width: "100%" }}>
-        <Image fit="cover" src={props.image} fill={false} />
-      </Box>
-      <Box style={{ position: "absolute", top: 0, left: 0 }} fill>
-        <Box direction="column" align="center" justify="center" fill>
-          <Box
-            background={{
-              color: transparentize(0.5, desaturate(0.1, props.backgroundColor)),
-              opacity: 0.9,
-            }}
-            align={"center"}
-            justify="center"
-            width={"100%"}
-            height={"100%"}
-            pad={"60px"}
-          >
-            <Box
-              style={{
-                fontWeight: 500,
-                textAlign: "center",
-                textShadow: "0 2px 0 4px rgba(0,0,0,0.1)",
-                fontSize: "32px",
-                lineHeight: "normal",
-              }}
-            >
-              {props.question}
-            </Box>
-            <Box height={"25px"} />
-            <Box
-              style={{
-                textAlign: "center",
-                textShadow: "0 2px 0 4px rgba(0,0,0,0.1)",
-                fontSize: "24px",
-              }}
-            >
-              {props.studentName}, Grade {props.grade}
-            </Box>
-          </Box>
-        </Box>
-      </Box>
-    </Box>
-  )
-}
-
-type ExploreQuestionsSectionProps = {
-  size: string
 }
 
 const colors = [red, purple, almostWhite, goldenrod, darkRed, lavender, powderBlue]
 
-const cards = [
+const cards: Array<QuestionCard> = [
   {
     priority: 1,
     question: "Why don't satellites fall out of the sky?",
@@ -173,6 +118,69 @@ const cards = [
     image: mango,
   },
 ]
+const QuestionCard = (props: QuestionCardProps) => {
+  const ratio = 12 / 9
+
+  return (
+    <ResponsiveContext.Consumer>
+      {(size) => (
+        <Box
+          style={{
+            position: "relative",
+            paddingBottom: `${ratio * 100}%`,
+            paddingTop: 25,
+            height: 0,
+          }}
+        >
+          <Box style={{ position: "absolute", height: "100%", width: "100%" }}>
+            <Image fit="cover" src={props.image} fill={false} />
+          </Box>
+          <Box style={{ position: "absolute", top: 0, left: 0 }} fill>
+            <Box direction="column" align="center" justify="center" fill>
+              <Box
+                background={{
+                  color: transparentize(0.5, desaturate(0.1, props.backgroundColor)),
+                  opacity: 0.9,
+                }}
+                align={"center"}
+                justify="center"
+                width="100%"
+                height="100%"
+                pad={size === "small" ? "30px" : "60px"}
+              >
+                <Box
+                  style={{
+                    fontWeight: 500,
+                    textAlign: "center",
+                    textShadow: "0 2px 0 4px rgba(0,0,0,0.1)",
+                    fontSize: size === "small" ? "24px" : "32px",
+                    lineHeight: "normal",
+                  }}
+                >
+                  {props.question}
+                </Box>
+                <Box height={"25px"} />
+                <Box
+                  style={{
+                    textAlign: "center",
+                    textShadow: "0 2px 0 4px rgba(0,0,0,0.1)",
+                    fontSize: size === "small" ? "16px" : "24px",
+                  }}
+                >
+                  {props.studentName}, Grade {props.grade}
+                </Box>
+              </Box>
+            </Box>
+          </Box>
+        </Box>
+      )}
+    </ResponsiveContext.Consumer>
+  )
+}
+
+type ExploreQuestionsSectionProps = BaseSectionProps & {
+  size: string
+}
 
 const ExploreQuestionsSection = (props: ExploreQuestionsSectionProps) => {
   const slidesToShow = props.size === "small" ? 1.5 : props.size === "mediumSmall" ? 2.2 : 3.5
@@ -189,9 +197,9 @@ const ExploreQuestionsSection = (props: ExploreQuestionsSectionProps) => {
         <Heading level="2">Explore Student Questions</Heading>
       </Box>
       <div ref={ref} className="keen-slider">
-        {cards.map((props, index) => (
+        {cards.map((card, index) => (
           <div className="keen-slider__slide">
-            <QuestionCard {...props} backgroundColor={colors[index % colors.length]} />
+            <QuestionCard {...card} backgroundColor={colors[index % colors.length]} />
           </div>
         ))}
       </div>
