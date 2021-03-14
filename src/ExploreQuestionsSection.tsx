@@ -175,12 +175,12 @@ const cards = [
 ]
 
 const ExploreQuestionsSection = (props: ExploreQuestionsSectionProps) => {
-  const slidesToShow = props.size === "small" ? 1 : props.size === "mediumSmall" ? 2 : 4
+  const slidesToShow = props.size === "small" ? 1.5 : props.size === "mediumSmall" ? 2.2 : 3.5
   const [ref] = useKeenSlider<HTMLDivElement>({
     slidesPerView: slidesToShow,
     mode: "free-snap",
     loop: true,
-    centered: true
+    centered: true,
   })
 
   return (
@@ -191,11 +191,10 @@ const ExploreQuestionsSection = (props: ExploreQuestionsSectionProps) => {
       <div ref={ref} className="keen-slider">
         {cards.map((props, index) => (
           <div className="keen-slider__slide">
-          <QuestionCard {...props} backgroundColor={colors[index % colors.length]} />
+            <QuestionCard {...props} backgroundColor={colors[index % colors.length]} />
           </div>
         ))}
       </div>
-
     </SectionContainer>
   )
 }

@@ -8,7 +8,7 @@ import ExploreQuestionsSection from "./ExploreQuestionsSection"
 import Navigation from "./Navigation"
 import ResponsiveYouTubeEmbed from "./ResponsiveYouTubeEmbed"
 import SectionContainer from "./SectionContainer"
-import SelectedQuestionsSection from "./StudentQuestionsSection"
+import SelectedQuestionsSection from "./SelectedStudentQuestionsSection"
 
 const theme = deepMerge<ThemeType, ThemeType>(base, {
   global: {
