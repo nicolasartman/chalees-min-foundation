@@ -18,7 +18,7 @@ import { almostWhite, purple, red, darkRed, lavender, goldenrod, powderBlue } fr
 import SectionContainer from "./SectionContainer"
 import { BaseSectionProps } from "./BaseSectionProps"
 
-type QuestionCard = {
+type QuestionCardData = {
   priority: number
   question: string
   studentName: string
@@ -26,13 +26,13 @@ type QuestionCard = {
   image: string
 }
 
-type QuestionCardProps = QuestionCard & {
+type QuestionCardProps = QuestionCardData & {
   backgroundColor: string
 }
 
 const colors = [red, purple, almostWhite, goldenrod, darkRed, lavender, powderBlue]
 
-const cards: Array<QuestionCard> = [
+const cards: Array<QuestionCardData> = [
   {
     priority: 1,
     question: "Why don't satellites fall out of the sky?",
@@ -118,6 +118,7 @@ const cards: Array<QuestionCard> = [
     image: mango,
   },
 ]
+
 const QuestionCard = (props: QuestionCardProps) => {
   const ratio = 12 / 9
 
