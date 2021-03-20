@@ -1,13 +1,12 @@
-import { base, Box, Grommet, Heading, Image, ResponsiveContext, ThemeType } from "grommet"
+import { base, Box, Grommet, Heading, ResponsiveContext, ThemeType } from "grommet"
 import { deepMerge } from "grommet/utils"
 import React from "react"
-import { BaseSectionProps } from "./BaseSectionProps"
 import { almostWhite, heroBannerBackground, red } from "./colors"
 import { headerHeight } from "./constants"
 import ExploreQuestionsSection from "./ExploreQuestionsSection"
+import HowWeWorkSection from "./HowWeWorkSection"
 import Navigation from "./Navigation"
 import ResponsiveYouTubeEmbed from "./ResponsiveYouTubeEmbed"
-import SectionContainer from "./SectionContainer"
 import SelectedQuestionsSection from "./SelectedStudentQuestionsSection"
 
 const theme = deepMerge<ThemeType, ThemeType>(base, {
@@ -157,68 +156,6 @@ const MobileHeroBanner = () => (
       </Box>
     </Box>
   </Box>
-)
-
-type CardProps = {
-  title: string
-  text: string
-  pictureSource: string
-}
-
-const howWeWorkCardPictureSize = 100
-const HowWeWorkCard = (props: CardProps) => (
-  <Box direction="row" fill="horizontal">
-    <Box direction="row" align="start" flex="grow" pad={{ right: "20px" }}>
-      <Image
-        height={howWeWorkCardPictureSize}
-        width={howWeWorkCardPictureSize}
-        src={props.pictureSource}
-      />
-    </Box>
-    <Box direction="column" fill="horizontal">
-      <Heading level="3" margin="0">
-        {props.title}
-      </Heading>
-      <Box>{props.text}</Box>
-    </Box>
-  </Box>
-)
-
-const HowWeWorkSection = (props: BaseSectionProps) => (
-  <SectionContainer flex="grow">
-    <Box pad={{ horizontal: "40px" }}>
-      <Box direction="column" fill="horizontal" align="start">
-        <Heading level={2} margin="0">
-          How we work
-        </Heading>
-        <Box fill>After our teachers have taught a chapter from the textbook, our...</Box>
-      </Box>
-      <Box height="20px" />
-      <Box direction="column" gap="40px" pad={{ vertical: "medium" }} align="start">
-        <Box fill="horizontal">
-          <HowWeWorkCard
-            title="Students ask questions"
-            text="on a topic they just finished reading from the book; a question that is interesting to them."
-            pictureSource="https://placekitten.com/50/50"
-          />
-        </Box>
-        <Box fill="horizontal">
-          <HowWeWorkCard
-            title="Students conduct research"
-            text="by asking an older sibling, or by reading a book from the library, or by searching the Internet."
-            pictureSource="https://placekitten.com/50/50"
-          />
-        </Box>
-        <Box fill="horizontal">
-          <HowWeWorkCard
-            title="Students present answers"
-            text="by coming in front of class and teaching their peers, or by making short videos."
-            pictureSource="https://placekitten.com/50/50"
-          />
-        </Box>
-      </Box>
-    </Box>
-  </SectionContainer>
 )
 
 const App = () => {
