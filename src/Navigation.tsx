@@ -37,7 +37,7 @@ const Header = (props: BaseSectionProps) => {
             right: 0,
             height: "100vh",
             transition: `opacity ${defaultTransitionDuration} ease`,
-            opacity: !props.isMobileLayout && isAtPageTop ? "0" : "1",
+            opacity: isAtPageTop ? "0" : "1",
           }}
           background={heroBannerBackground}
         />
@@ -47,9 +47,9 @@ const Header = (props: BaseSectionProps) => {
           tag="header"
           direction="row"
           align="center"
-          justify={props.isMobileLayout ? "center" : "start"}
+          justify="start"
           pad={{ left: "medium", right: "small", vertical: "small" }}
-          elevation={!props.isMobileLayout && isAtPageTop ? "none" : "large"}
+          elevation={isAtPageTop ? "none" : "large"}
           style={{ transition: `box-shadow ${defaultTransitionDuration} ease` }}
         >
           <Box style={{ color: "white" }}>
