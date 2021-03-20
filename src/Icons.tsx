@@ -1,3 +1,10 @@
+// =====================================
+// = Educca Icons from Envato Elements =
+// =====================================
+
+// These are all licensed for this project through Nick Artman's Envato Elements account and cannot
+// be used outside this repository & project.
+
 export const BrainIcon = () => (
   <svg width={50} height={50}>
     <defs>
@@ -177,6 +184,206 @@ export const PodiumIcon = () => (
         />
         <circle fill="url(#podium_i)" cx={24} cy={3} r={3} />
       </g>
+    </g>
+  </svg>
+)
+
+export const CertificateIcon = () => (
+  <svg width={50} height={50}>
+    <defs>
+      <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="certificate_a">
+        <stop stopColor="#00D3FF" offset="0%" />
+        <stop stopColor="#098EFF" offset="100%" />
+      </linearGradient>
+      <linearGradient x1="50%" y1="112.547%" x2="50%" y2="44.631%" id="certificate_b">
+        <stop stopColor="#FF9696" offset="0%" />
+        <stop stopColor="#FF2D2D" offset="100%" />
+      </linearGradient>
+      <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="certificate_c">
+        <stop stopColor="#FFCB00" offset="0%" />
+        <stop stopColor="#FF8E1F" offset="100%" />
+      </linearGradient>
+      <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="certificate_d">
+        <stop stopColor="#E7EBF8" offset="0%" />
+        <stop stopColor="#D1D9EB" offset="100%" />
+      </linearGradient>
+      <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="certificate_e">
+        <stop stopColor="#FFD947" offset="0%" />
+        <stop stopColor="#FF9D3D" offset="100%" />
+      </linearGradient>
+      <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="certificate_f">
+        <stop stopColor="#FFDD57" offset="0%" />
+        <stop stopColor="#FFB76F" offset="100%" />
+      </linearGradient>
+    </defs>
+    <g fill="none" fillRule="evenodd">
+      <path d="M0 0h50v50H0z" />
+      <path
+        d="M3 2h44a1 1 0 0 1 1 1v34a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z"
+        fill="url(#certificate_a)"
+      />
+      <path
+        d="M45 31a4 4 0 0 0-4 4H9.006v-.028a4 4 0 0 0-4-4H5V8.998h.01A4 4 0 0 0 9.01 5h31.983v.022a4 4 0 0 0 4 4H45v21.979z"
+        fill="#F8FAFF"
+      />
+      <path
+        d="M25.007 35h-16v-.028a4 4 0 0 0-4-4H5V8.998h.01A4 4 0 0 0 9.01 5L25 5.022l.007 29.979z"
+        fill="#FFF"
+      />
+      <path fill="url(#certificate_b)" d="M28 31h8v15l-4-3-4 3z" />
+      <path
+        d="M31.558 37.07l-.523.45a.678.678 0 0 1-1.063-.243l-.276-.632a.678.678 0 0 0-.797-.383l-.666.177a.678.678 0 0 1-.852-.68l.025-.688a.678.678 0 0 0-.551-.691l-.677-.13a.678.678 0 0 1-.474-.982l.322-.61a.678.678 0 0 0-.197-.861l-.554-.41a.678.678 0 0 1 0-1.09l.554-.41c.27-.2.353-.566.197-.862l-.322-.61a.678.678 0 0 1 .474-.983l.677-.128a.678.678 0 0 0 .55-.692l-.024-.688a.678.678 0 0 1 .852-.68l.666.177a.678.678 0 0 0 .797-.383l.276-.631a.678.678 0 0 1 1.063-.243l.523.449c.254.218.63.218.884 0l.523-.45a.678.678 0 0 1 1.063.244l.276.63c.135.308.473.47.797.384l.666-.177a.678.678 0 0 1 .852.68l-.025.688a.678.678 0 0 0 .551.692l.677.128a.678.678 0 0 1 .474.983l-.322.61a.678.678 0 0 0 .197.861l.554.41a.678.678 0 0 1 0 1.091l-.554.41a.678.678 0 0 0-.197.862l.322.61a.678.678 0 0 1-.474.982l-.677.129a.678.678 0 0 0-.55.69l.024.69a.678.678 0 0 1-.852.68l-.666-.178a.678.678 0 0 0-.797.383l-.276.632a.678.678 0 0 1-1.063.242l-.523-.449a.678.678 0 0 0-.884 0z"
+        fill="url(#certificate_c)"
+      />
+      <path
+        d="M10 12h15v1H10v-1zm0 3h30v1H10v-1zm0 3h24v1H10v-1zm0 3h30v1H10v-1z"
+        fill="url(#certificate_d)"
+      />
+      <path
+        d="M32 24.777v12.13a.677.677 0 0 0-.442.163l-.523.45a.678.678 0 0 1-1.063-.243l-.276-.632a.678.678 0 0 0-.797-.383l-.666.177a.678.678 0 0 1-.852-.68l.025-.688a.678.678 0 0 0-.551-.691l-.677-.13a.678.678 0 0 1-.474-.982l.322-.61a.678.678 0 0 0-.197-.861l-.554-.41a.678.678 0 0 1 0-1.09l.554-.41c.27-.2.353-.566.197-.862l-.322-.61a.678.678 0 0 1 .474-.983l.677-.128a.678.678 0 0 0 .55-.692l-.024-.688a.678.678 0 0 1 .852-.68l.666.177a.678.678 0 0 0 .797-.383l.276-.631a.678.678 0 0 1 1.063-.243l.523.449c.127.109.285.164.442.164z"
+        fill="url(#certificate_e)"
+      />
+      <circle fill="url(#certificate_f)" cx={32} cy={31} r={4} />
+    </g>
+  </svg>
+)
+
+export const HeartIcon = () => (
+  <svg width={50} height={50}>
+    <defs>
+      <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="heart_a">
+        <stop stopColor="#ECF0FF" offset="0%" />
+        <stop stopColor="#D3DBEF" offset="100%" />
+      </linearGradient>
+      <linearGradient x1="52.291%" y1="11.774%" x2="50%" y2="100%" id="heart_b">
+        <stop stopColor="#CFD5EA" offset="0%" />
+        <stop stopColor="#C1C9DE" offset="100%" />
+      </linearGradient>
+      <linearGradient x1="50%" y1="17.817%" x2="50%" y2="100%" id="heart_c">
+        <stop stopColor="#BFC8E8" offset="0%" />
+        <stop stopColor="#AFBAD3" offset="100%" />
+      </linearGradient>
+    </defs>
+    <g fill="none" fillRule="evenodd">
+      <path d="M0 0h50v50H0z" />
+      <path fill="url(#heart_a)" d="M25 1l21 13.09-21 13.092L4 14.09z" />
+      <path fill="url(#heart_b)" d="M4 35.91L25 49V27.182L4 14.09z" />
+      <path fill="url(#heart_c)" d="M46 35.91L25 49V27.182L46 14.09z" />
+    </g>
+  </svg>
+)
+
+export const BooksIcon = () => (
+  <svg width={50} height={50}>
+    <defs>
+      <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="books_a">
+        <stop stopColor="#A4E14A" offset="0%" />
+        <stop stopColor="#5FDA6B" offset="100%" />
+      </linearGradient>
+      <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="books_b">
+        <stop stopColor="#B0F052" offset="0%" />
+        <stop stopColor="#65E572" offset="100%" />
+      </linearGradient>
+      <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="books_c">
+        <stop stopColor="#FFCB00" offset="0%" />
+        <stop stopColor="#FF7E00" offset="100%" />
+      </linearGradient>
+      <linearGradient x1="50%" y1="6.748%" x2="52.93%" y2="100%" id="books_d">
+        <stop stopColor="#5DA7FF" offset="0%" />
+        <stop stopColor="#8B54FF" offset="100%" />
+      </linearGradient>
+      <linearGradient x1="62.942%" y1="3.161%" x2="62.942%" y2="100%" id="books_e">
+        <stop stopColor="#6FB1FF" offset="0%" />
+        <stop stopColor="#925EFF" offset="100%" />
+      </linearGradient>
+      <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="books_f">
+        <stop stopColor="#FFCB00" offset="0%" />
+        <stop stopColor="#FF7E00" offset="100%" />
+      </linearGradient>
+      <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="books_g">
+        <stop stopColor="#FFD42A" offset="0%" />
+        <stop stopColor="#FF9935" offset="100%" />
+      </linearGradient>
+      <linearGradient x1="48.979%" y1="20.684%" x2="48.979%" y2="104.349%" id="books_h">
+        <stop stopColor="#62698F" offset="0%" />
+        <stop stopColor="#475078" offset="100%" />
+      </linearGradient>
+      <linearGradient x1="50%" y1="-66.208%" x2="50%" y2="94.224%" id="books_i">
+        <stop stopColor="#FF9696" offset="0%" />
+        <stop stopColor="#FF2D2D" offset="100%" />
+      </linearGradient>
+    </defs>
+    <g fill="none" fillRule="evenodd">
+      <path d="M0 0h50v50H0z" />
+      <path
+        d="M4 2h9a1 1 0 0 1 1 1v44a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z"
+        fill="url(#books_a)"
+      />
+      <path d="M4 2h4.5v46H4a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z" fill="url(#books_b)" />
+      <path
+        d="M15 2h9a1 1 0 0 1 1 1v44a1 1 0 0 1-1 1h-9a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z"
+        fill="url(#books_c)"
+      />
+      <path
+        d="M25.744 4.393l8.693-2.33a1 1 0 0 1 1.225.707l11.13 41.535a1 1 0 0 1-.708 1.225l-8.693 2.33a1 1 0 0 1-1.225-.708L25.036 5.617a1 1 0 0 1 .708-1.224z"
+        fill="url(#books_d)"
+      />
+      <path
+        d="M25.744 4.393l4.347-1.165 11.647 43.467-4.347 1.164a1 1 0 0 1-1.225-.707L25.036 5.617a1 1 0 0 1 .708-1.224z"
+        fill="url(#books_e)"
+      />
+      <path fill="url(#books_f)" d="M26.59 11.413l10.625-2.847 1.553 5.795-10.625 2.847z" />
+      <path d="M15 2h4.5v46H15a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z" fill="url(#books_g)" />
+      <path fill="url(#books_h)" d="M3 32h11v6H3z" />
+      <path fill="url(#books_i)" d="M14 22h11v6H14z" />
+    </g>
+  </svg>
+)
+
+export const MoleculeIcon = () => (
+  <svg width={50} height={50}>
+    <defs>
+      <linearGradient x1="48.979%" y1="20.684%" x2="48.979%" y2="104.349%" id="molecule_a">
+        <stop stopColor="#62698F" offset="0%" />
+        <stop stopColor="#475078" offset="100%" />
+      </linearGradient>
+      <linearGradient x1="50%" y1="-15.026%" x2="50%" y2="94.224%" id="molecule_b">
+        <stop stopColor="#FF9696" offset="0%" />
+        <stop stopColor="#FF2D2D" offset="100%" />
+      </linearGradient>
+      <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="molecule_c">
+        <stop stopColor="#00D3FF" offset="0%" />
+        <stop stopColor="#098EFF" offset="100%" />
+      </linearGradient>
+      <linearGradient x1="53.481%" y1="0%" x2="53.481%" y2="100%" id="molecule_d">
+        <stop stopColor="#499CFF" offset="0%" />
+        <stop stopColor="#7E41FF" offset="100%" />
+      </linearGradient>
+      <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="molecule_e">
+        <stop stopColor="#FFCB00" offset="0%" />
+        <stop stopColor="#FF7E00" offset="100%" />
+      </linearGradient>
+      <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="molecule_f">
+        <stop stopColor="#A4E14A" offset="0%" />
+        <stop stopColor="#5FDA6B" offset="100%" />
+      </linearGradient>
+      <linearGradient x1="50%" y1="0%" x2="58.086%" y2="100%" id="molecule_g">
+        <stop stopColor="#D9DEF2" offset="0%" />
+        <stop stopColor="#B6C1DC" offset="100%" />
+      </linearGradient>
+    </defs>
+    <g fill="none" fillRule="evenodd">
+      <path d="M0 0h50v50H0z" />
+      <path
+        fill="url(#molecule_a)"
+        d="M24.174 24.704L6.534 35.845l-1.068-1.69 17.88-11.293L5.333 6.745l1.334-1.49L25 21.658 43.333 5.255l1.334 1.49-18.05 16.15 17.948 12.28-1.13 1.65-17.214-11.778 1.774 16.848-1.99.21z"
+      />
+      <circle fill="url(#molecule_b)" cx={25} cy={23} r={7} />
+      <circle fill="url(#molecule_c)" cx={44} cy={6} r={4} />
+      <circle fill="url(#molecule_d)" cx={44} cy={36} r={4} />
+      <circle fill="url(#molecule_e)" cx={6} cy={35} r={4} />
+      <circle fill="url(#molecule_f)" cx={6} cy={6} r={4} />
+      <circle fill="url(#molecule_g)" cx={27} cy={41} r={4} />
     </g>
   </svg>
 )
