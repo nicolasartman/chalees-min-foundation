@@ -1,12 +1,11 @@
 import { useScrollPosition } from "@n8tb1t/use-scroll-position"
 import { Box, Button, Drop, Heading } from "grommet"
+import { Menu } from "grommet-icons"
 import { useRef, useState } from "react"
 import { BaseSectionProps } from "./BaseSectionProps"
 import ChaleesHeartIcon from "./ChaleesHeartIcon"
 import { heroBannerBackground, white } from "./colors"
-import { Menu } from "grommet-icons"
 import { defaultTransitionDuration, headerHeight } from "./constants"
-import useOnClickOutside from "use-onclickoutside"
 
 const Header = (props: BaseSectionProps) => {
   // const isAtPageTop = false
@@ -21,14 +20,11 @@ const Header = (props: BaseSectionProps) => {
 
   const [menuIsOpen, setMenuIsOpen] = useState(false)
   const menuRef = useRef<HTMLDivElement | null>(null)
-  const navigationRef = useRef<HTMLDivElement | null>(null)
-
-  useOnClickOutside(navigationRef, () => setMenuIsOpen(false))
 
   const toggleMenu = () => setMenuIsOpen(!menuIsOpen)
 
   return (
-    <Box fill style={{ position: "relative" }} ref={navigationRef}>
+    <Box fill style={{ position: "relative" }}>
       <Box
         style={{
           position: "absolute",
