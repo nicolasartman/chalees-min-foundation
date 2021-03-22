@@ -1,10 +1,12 @@
 import { useScrollPosition } from "@n8tb1t/use-scroll-position"
-import { Box, Heading } from "grommet"
-import { useState } from "react"
+import { Box, Button, Drop, Heading } from "grommet"
+import { useRef, useState } from "react"
 import { BaseSectionProps } from "./BaseSectionProps"
 import ChaleesHeartIcon from "./ChaleesHeartIcon"
 import { heroBannerBackground, white } from "./colors"
-import { defaultTransitionDuration } from "./constants"
+import { Menu } from "grommet-icons"
+import { defaultTransitionDuration, headerHeight } from "./constants"
+import useOnClickOutside from "use-onclickoutside"
 
 const Header = (props: BaseSectionProps) => {
   // const isAtPageTop = false
@@ -17,8 +19,16 @@ const Header = (props: BaseSectionProps) => {
     }
   })
 
+  const [menuIsOpen, setMenuIsOpen] = useState(false)
+  const menuRef = useRef<HTMLDivElement | null>(null)
+  const navigationRef = useRef<HTMLDivElement | null>(null)
+
+  useOnClickOutside(navigationRef, () => setMenuIsOpen(false))
+
+  const toggleMenu = () => setMenuIsOpen(!menuIsOpen)
+
   return (
-    <Box fill style={{ position: "relative" }}>
+    <Box fill style={{ position: "relative" }} ref={navigationRef}>
       <Box
         style={{
           position: "absolute",
@@ -47,18 +57,64 @@ const Header = (props: BaseSectionProps) => {
           tag="header"
           direction="row"
           align="center"
-          justify="start"
-          pad={{ left: "medium", right: "small", vertical: "small" }}
+          justify="between"
+          pad={{ horizontal: "medium", vertical: "small" }}
           elevation={isAtPageTop ? "none" : "large"}
           style={{ transition: `box-shadow ${defaultTransitionDuration} ease` }}
+          ref={menuRef}
         >
-          <Box style={{ color: "white" }}>
-            <ChaleesHeartIcon />
+          <Box fill="horizontal" direction="row" align="center" flex="grow">
+            <Box style={{ color: "white" }}>
+              <ChaleesHeartIcon />
+            </Box>
+            <Box width="10px" />
+            <Heading level="3" margin="none" color={white} style={{ fontWeight: 400 }}>
+              Chalees Minute Foundation
+            </Heading>
           </Box>
-          <Box width="10px" />
-          <Heading level="3" margin="none" color={white} style={{ fontWeight: 400 }}>
-            Chalees Minute Foundation
-          </Heading>
+          <Box fill="horizontal" direction="row" justify="end">
+            {props.isMobileLayout ? (
+              <Button plain onClick={toggleMenu}>
+                <Menu color={white} />
+              </Button>
+            ) : null}
+          </Box>
+          {menuIsOpen && menuRef.current ? (
+            <Drop
+              align={{ top: "bottom", right: "right" }}
+              target={menuRef.current}
+              elevation="large"
+            >
+              <Box pad="medium" direction="column">
+                <Box
+                  style={{
+                    position: "absolute",
+                    top: -headerHeight,
+                    left: 0,
+                    right: 0,
+                    height: "100vh",
+                    zIndex: -1,
+                  }}
+                  background={heroBannerBackground}
+                />
+
+                <Box direction="column" gap="small">
+                  <Button
+                    plain
+                    fill
+                    color={white}
+                    style={{ textAlign: "right" }}
+                    onClick={() => window.location.assign("https://chaleesmin.school")}
+                  >
+                    Library
+                  </Button>
+                  <Button plain fill color={white} style={{ textAlign: "right" }}>
+                    About
+                  </Button>
+                </Box>
+              </Box>
+            </Drop>
+          ) : null}
         </Box>
       </Box>
     </Box>
