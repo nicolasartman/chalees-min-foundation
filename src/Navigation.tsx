@@ -46,8 +46,6 @@ const Header = (props: BaseSectionProps) => {
             left: 0,
             right: 0,
             height: "100vh",
-            transition: `opacity ${defaultTransitionDuration} ease`,
-            opacity: isAtPageTop ? "0" : "1",
           }}
           background={heroBannerBackground}
         />
@@ -98,6 +96,7 @@ const Header = (props: BaseSectionProps) => {
               align={{ top: "bottom", right: "right" }}
               target={menuRef.current}
               elevation="large"
+              overflow="hidden"
             >
               <Box pad="medium" direction="column">
                 <Box
