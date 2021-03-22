@@ -55,11 +55,14 @@ const HeroBanner = () => (
         </Box>
       </Box>
       <Box
+        data-dev="video"
         elevation="medium"
         style={{
           position: "relative",
           width: `calc((100vh - ${headerHeight}px - 40px) * 9/16)`,
+          minWidth: `calc((100vh - ${headerHeight}px - 40px) * 9/16)`,
           height: `calc(100vh - ${headerHeight}px - 40px)`,
+          minHeight: `calc(100vh - ${headerHeight}px - 40px)`,
         }}
       >
         <iframe
