@@ -77,7 +77,21 @@ const Header = (props: BaseSectionProps) => {
               <Button plain onClick={toggleMenu}>
                 <Menu color={white} />
               </Button>
-            ) : null}
+            ) : (
+              <Box direction="row" gap="medium" fill="horizontal" justify="end">
+                <Button
+                  plain
+                  color={white}
+                  style={{ textAlign: "right" }}
+                  onClick={() => window.location.assign("https://chaleesmin.school")}
+                >
+                  Library
+                </Button>
+                <Button plain color={white} style={{ textAlign: "right" }}>
+                  About
+                </Button>
+              </Box>
+            )}
           </Box>
           {menuIsOpen && menuRef.current ? (
             <Drop
