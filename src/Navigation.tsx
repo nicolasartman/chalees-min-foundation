@@ -56,12 +56,14 @@ const Header = (props: BaseSectionProps) => {
           direction="row"
           align="center"
           justify="between"
+          fill
           pad={{ horizontal: "medium", vertical: "small" }}
           elevation={isAtPageTop ? "none" : "large"}
           style={{ transition: `box-shadow ${defaultTransitionDuration} ease` }}
           ref={menuRef}
         >
-          <Box fill="horizontal" direction="row" align="center" flex="grow">
+          {/* Main branding */}
+          <Box fill direction="row" align="center" flex="grow">
             <Box style={{ color: "white" }}>
               <ChaleesHeartIcon />
             </Box>
@@ -70,7 +72,9 @@ const Header = (props: BaseSectionProps) => {
               Chalees Minute Foundation
             </Heading>
           </Box>
-          <Box fill="horizontal" direction="row" justify="end">
+
+          {/* Additional navigation links (menu or items depending on size) */}
+          <Box direction="row" justify="end">
             {props.isMobileLayout ? (
               <Button plain onClick={toggleMenu}>
                 <Menu color={white} />
@@ -98,7 +102,7 @@ const Header = (props: BaseSectionProps) => {
               elevation="large"
               overflow="hidden"
             >
-              <Box pad="medium" direction="column">
+              <Box pad={{ top: "small", bottom: "large", horizontal: "medium" }} direction="column">
                 <Box
                   style={{
                     position: "absolute",
@@ -110,8 +114,7 @@ const Header = (props: BaseSectionProps) => {
                   }}
                   background={heroBannerBackground}
                 />
-
-                <Box direction="column" gap="small">
+                <Box direction="column" gap="medium">
                   <Button
                     plain
                     fill
