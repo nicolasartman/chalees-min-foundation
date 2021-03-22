@@ -1,6 +1,7 @@
 import { Box, Heading } from "grommet"
 import { heroBannerBackground } from "./colors"
 import { headerHeight } from "./constants"
+import HeroBannerVideo from "./HeroBannerVideo"
 
 const HeroBanner = () => (
   <Box
@@ -19,7 +20,7 @@ const HeroBanner = () => (
       pad={{ horizontal: "20px" }}
     >
       <Box align="end" pad={{ right: "40px" }} data-dev="text">
-        <Box align={"start"} justify="start" direction="column" fill="horizontal">
+        <Box align="start" justify="start" direction="column" fill="horizontal">
           <Box fill="horizontal" align="center">
             <Heading
               level={1}
@@ -56,7 +57,6 @@ const HeroBanner = () => (
       </Box>
       <Box
         data-dev="video"
-        elevation="medium"
         style={{
           position: "relative",
           width: `calc((100vh - ${headerHeight}px - 40px) * 9/16)`,
@@ -64,21 +64,10 @@ const HeroBanner = () => (
           height: `calc(100vh - ${headerHeight}px - 40px)`,
           minHeight: `calc(100vh - ${headerHeight}px - 40px)`,
         }}
+        direction="column"
+        justify="center"
       >
-        <iframe
-          title="Student Driven Learning"
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-          }}
-          src={`https://www.youtube.com/embed/3LHpE-rEZjM`}
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        />
+        <HeroBannerVideo />
       </Box>
     </Box>
   </Box>
