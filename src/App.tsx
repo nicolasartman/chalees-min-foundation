@@ -28,9 +28,11 @@ const theme = deepMerge<ThemeType, ThemeType>(base, {
     },
   },
   heading: {
-    extend: {
-      margin: 0,
-    },
+    extend: [
+      {
+        margin: 0,
+      },
+    ],
   },
 })
 
