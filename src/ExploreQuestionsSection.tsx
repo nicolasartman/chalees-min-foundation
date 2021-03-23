@@ -198,7 +198,7 @@ const ExploreQuestionsSection = (props: ExploreQuestionsSectionProps) => {
       <Box fill style={{ position: "relative" }}>
         <div ref={ref} className="keen-slider">
           {cards.map((card, index) => (
-            <div className="keen-slider__slide">
+            <div className="keen-slider__slide" key={card.question}>
               <QuestionCard {...card} backgroundColor={colors[index % colors.length]} />
             </div>
           ))}
