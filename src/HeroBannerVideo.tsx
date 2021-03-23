@@ -16,7 +16,6 @@ const YouTubeVideoContainer = style(Box)({
 
 const HeroBannerVideo: React.FC<YouTubeProps> = (props) => {
   const [isAtStart, setIsAtStart] = useState(true)
-  console.log({ isAtStart })
 
   return (
     <Box fill style={{ position: "relative" }}>

@@ -1,22 +1,22 @@
 import { Box, Heading, Image, ResponsiveContext } from "grommet"
-import { desaturate, transparentize } from "polished"
-import { useKeenSlider } from "keen-slider/react"
 import "keen-slider/keen-slider.min.css"
-import image1 from "./images/satellites.png"
-import image2 from "./images/fruits.jpeg"
-import image3 from "./images/womensVotingRights.png"
-import image4 from "./images/earthquake.png"
-import image5 from "./images/airConditioner.jpeg"
-import eagleFlyingPatterns from "./images/eagleFlyingPatterns.png"
-import napoleon from "./images/napoleon.png"
-import globalWarming from "./images/globalWarming.jpeg"
-import cylinder from "./images/cylinder.png"
-import snakesHearing from "./images/snakesHearing.jpeg"
-import moonHalf from "./images/moonHalf.png"
-import mango from "./images/mango.png"
-import { almostWhite, purple, red, darkRed, lavender, goldenrod, powderBlue } from "./colors"
-import SectionContainer from "./SectionContainer"
+import { useKeenSlider } from "keen-slider/react"
+import { desaturate, transparentize } from "polished"
 import { BaseSectionProps } from "./BaseSectionProps"
+import { cyan, darkGreen, darkPurple, darkRed, darkYellow, purple, red, white } from "./colors"
+import image5 from "./images/airConditioner.jpeg"
+import cylinder from "./images/cylinder.png"
+import eagleFlyingPatterns from "./images/eagleFlyingPatterns.png"
+import image4 from "./images/earthquake.png"
+import image2 from "./images/fruits.jpeg"
+import globalWarming from "./images/globalWarming.jpeg"
+import mango from "./images/mango.png"
+import moonHalf from "./images/moonHalf.png"
+import napoleon from "./images/napoleon.png"
+import image1 from "./images/satellites.png"
+import snakesHearing from "./images/snakesHearing.jpeg"
+import image3 from "./images/womensVotingRights.png"
+import SectionContainer from "./SectionContainer"
 
 type QuestionCardData = {
   priority: number
@@ -30,7 +30,7 @@ type QuestionCardProps = QuestionCardData & {
   backgroundColor: string
 }
 
-const colors = [red, purple, almostWhite, goldenrod, darkRed, lavender, powderBlue]
+const colors = [red, purple, darkYellow, darkPurple, darkRed, cyan, darkGreen]
 
 const cards: Array<QuestionCardData> = [
   {
@@ -120,7 +120,7 @@ const cards: Array<QuestionCardData> = [
 ]
 
 const QuestionCard = (props: QuestionCardProps) => {
-  const ratio = 12 / 9
+  const ratio = 16 / 9
 
   return (
     <ResponsiveContext.Consumer>
@@ -129,7 +129,6 @@ const QuestionCard = (props: QuestionCardProps) => {
           style={{
             position: "relative",
             paddingBottom: `${ratio * 100}%`,
-            paddingTop: 25,
             height: 0,
           }}
         >
@@ -143,7 +142,7 @@ const QuestionCard = (props: QuestionCardProps) => {
                   color: transparentize(0.5, desaturate(0.1, props.backgroundColor)),
                   opacity: 0.9,
                 }}
-                align={"center"}
+                align="center"
                 justify="center"
                 width="100%"
                 height="100%"
@@ -151,11 +150,12 @@ const QuestionCard = (props: QuestionCardProps) => {
               >
                 <Box
                   style={{
-                    fontWeight: 500,
+                    fontWeight: 400,
                     textAlign: "center",
                     textShadow: "0 2px 0 4px rgba(0,0,0,0.1)",
                     fontSize: size === "small" ? "24px" : "32px",
                     lineHeight: "normal",
+                    color: "white",
                   }}
                 >
                   {props.question}
@@ -166,6 +166,7 @@ const QuestionCard = (props: QuestionCardProps) => {
                     textAlign: "center",
                     textShadow: "0 2px 0 4px rgba(0,0,0,0.1)",
                     fontSize: size === "small" ? "16px" : "24px",
+                    color: "white",
                   }}
                 >
                   {props.studentName}, Grade {props.grade}
@@ -194,16 +195,30 @@ const ExploreQuestionsSection = (props: ExploreQuestionsSectionProps) => {
 
   return (
     <SectionContainer>
-      <Box direction="column" align="center" pad={{ bottom: "20px" }}>
-        <Heading level="2">Explore Student Questions</Heading>
+      <Box fill style={{ position: "relative" }}>
+        <div ref={ref} className="keen-slider">
+          {cards.map((card, index) => (
+            <div className="keen-slider__slide">
+              <QuestionCard {...card} backgroundColor={colors[index % colors.length]} />
+            </div>
+          ))}
+        </div>
+        <Box
+          direction="row"
+          justify="center"
+          fill="horizontal"
+          pad={{ top: "40px" }}
+          style={{
+            position: "absolute",
+            left: 0,
+            top: 0,
+          }}
+        >
+          <Heading level="2" color={white}>
+            Explore Student Questions
+          </Heading>
+        </Box>
       </Box>
-      <div ref={ref} className="keen-slider">
-        {cards.map((card, index) => (
-          <div className="keen-slider__slide">
-            <QuestionCard {...card} backgroundColor={colors[index % colors.length]} />
-          </div>
-        ))}
-      </div>
     </SectionContainer>
   )
 }
