@@ -4,7 +4,7 @@ import { BaseSectionProps } from "./BaseSectionProps"
 import SectionContainer from "./SectionContainer"
 
 export type InfoBlock = {
-  title: string
+  title?: string
   body: ReactNode
   icon: ReactNode
 }
