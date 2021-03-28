@@ -8,6 +8,7 @@ import HowWeWorkSection from "./HowWeWorkSection"
 import MobileHeroBanner from "./MobileHeroBanner"
 import Navigation from "./Navigation"
 import ContactUsSection from "./ContactUsSection"
+import OurValuesSection from "./OurValuesSection"
 
 const theme = deepMerge<ThemeType, ThemeType>(base, {
   global: {
@@ -69,6 +70,8 @@ const App = () => {
               {/* <SelectedQuestionsSection isMobileLayout={isMobileLayout} /> */}
 
               <ExploreQuestionsSection size={size} isMobileLayout={isMobileLayout} />
+
+              <OurValuesSection isMobileLayout={isMobileLayout} />
 
               <ContactUsSection isMobileLayout={isMobileLayout} />
 
