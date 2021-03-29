@@ -5,31 +5,37 @@ import { Anchor, Text } from "grommet"
 
 const blocks: Array<InfoBlock> = [
   {
-    body:
+    body: (
       <Text>
-        We are a nonprofit organization based in India. If you want to support our work or collaborate, please write to
-        us - <Anchor href={"mailto:hi@chaleesmin.school"} label={"hi@chaleesmin.school"} />
-      </Text>,
+        We are a nonprofit organization based in India. If you want to support our work or
+        collaborate, please write to us -{" "}
+        <Anchor
+          href={"mailto:hi@chaleesmin.school"}
+          label={"hi@chaleesmin.school"}
+          target="_blank"
+        />
+      </Text>
+    ),
     icon: <BrainIcon />,
   },
   {
-    body:
+    body: (
       <Text>
-        To watch more videos of student questions and teacher training, visit our <Anchor
-          href='https://www.youtube.com/channel/UCjQUNUa1BYtOTP7F9r1tkKw/videos'
+        To watch more videos of student questions and teacher training, visit our{" "}
+        <Anchor
+          href="https://www.youtube.com/channel/UCjQUNUa1BYtOTP7F9r1tkKw/videos"
           label="Youtube channel"
-      />.
-      </Text>,
+          target="_blank"
+        />
+        .
+      </Text>
+    ),
     icon: <MagnifyingGlassAndPaperIcon />,
-  }
+  },
 ]
 
 const ContactUsSection = (props: BaseSectionProps) => (
-  <InfoBlocksSection
-    title="Contact Us"
-    isMobileLayout={props.isMobileLayout}
-    blocks={blocks}
-  />
+  <InfoBlocksSection title="Contact Us" isMobileLayout={props.isMobileLayout} blocks={blocks} />
 )
 
 export default ContactUsSection
