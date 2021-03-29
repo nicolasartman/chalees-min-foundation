@@ -77,14 +77,13 @@ const App = () => {
 
               <OurValuesSection isMobileLayout={isMobileLayout} />
 
-              <ContactUsSection isMobileLayout={isMobileLayout} />
-
               <OurPartnersSection isMobileLayout={isMobileLayout} />
+
+              <ContactUsSection isMobileLayout={isMobileLayout} />
             </Box>
           )
         }}
       </ResponsiveContext.Consumer>
-      )
     </Grommet>
   )
 }
