@@ -1,7 +1,8 @@
-import { BaseSectionProps } from "./BaseSectionProps"
-import InfoBlocksSection, { InfoBlock } from "./InfoBlocksSection"
-import { BrainIcon, MagnifyingGlassAndPaperIcon } from "./Icons"
 import { Anchor, Text } from "grommet"
+import { Mail as MailIcon, Youtube as YoutubeIcon } from "grommet-icons"
+import { BaseSectionProps } from "./BaseSectionProps"
+import { purple } from "./colors"
+import InfoBlocksSection, { InfoBlock } from "./InfoBlocksSection"
 
 const blocks: Array<InfoBlock> = [
   {
@@ -16,7 +17,7 @@ const blocks: Array<InfoBlock> = [
         />
       </Text>
     ),
-    icon: <BrainIcon />,
+    icon: <MailIcon color={purple} />,
   },
   {
     body: (
@@ -30,7 +31,7 @@ const blocks: Array<InfoBlock> = [
         .
       </Text>
     ),
-    icon: <MagnifyingGlassAndPaperIcon />,
+    icon: <YoutubeIcon color="red" />,
   },
 ]
 
