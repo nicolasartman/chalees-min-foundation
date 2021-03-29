@@ -13,15 +13,16 @@ export type InfoBlock = {
 
 type BlockProps = InfoBlock & {
   isMobileLayout: boolean
+  alignIconHorizontallyOnNarrowWidth?: boolean
 }
 
 const Block = (props: BlockProps) => (
   <Box
-    direction={props.isMobileLayout ? "row" : "column"}
-    gap={props.isMobileLayout ? "none" : "small"}
+    direction={props.isMobileLayout && props.alignIconHorizontallyOnNarrowWidth ? "row" : "column"}
+    gap={props.isMobileLayout ? "small" : "medium"}
     fill="horizontal"
   >
-    <Box direction="row" align="start" flex="grow" pad={{ right: "20px" }}>
+    <Box direction="row" align="start" flex="grow">
       <Box
         flex="shrink"
         pad="small"
@@ -47,11 +48,12 @@ type InfoBlocksSectionProps = {
   title: string
   subtitle?: string
   blocks: Array<InfoBlock>
+  alignIconsHorizontallyOnNarrowWidth?: boolean
 } & BaseSectionProps
 
 const InfoBlocksSection = (props: InfoBlocksSectionProps) => (
   <SectionContainer flex="grow">
-    <Box pad={{ horizontal: "40px" }} style={{ maxWidth: 1600 }} alignSelf="center">
+    <Box pad={{ horizontal: "large" }} style={{ maxWidth: 1600 }} alignSelf="center">
       <Box direction="column" fill="horizontal" align="start">
         <Heading level={2} margin="0">
           {props.title}
@@ -67,7 +69,11 @@ const InfoBlocksSection = (props: InfoBlocksSectionProps) => (
       >
         {props.blocks.map((block) => (
           <Box fill="horizontal">
-            <Block {...block} isMobileLayout={props.isMobileLayout} />
+            <Block
+              {...block}
+              isMobileLayout={props.isMobileLayout}
+              alignIconHorizontallyOnNarrowWidth={props.alignIconsHorizontallyOnNarrowWidth}
+            />
           </Box>
         ))}
       </Box>
