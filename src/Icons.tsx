@@ -251,24 +251,25 @@ export const CertificateIcon = () => (
 export const HeartIcon = () => (
   <svg width={50} height={50}>
     <defs>
-      <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="heart_a">
-        <stop stopColor="#ECF0FF" offset="0%" />
-        <stop stopColor="#D3DBEF" offset="100%" />
+      <linearGradient x1="50%" y1="-15.026%" x2="50%" y2="94.224%" id="heart_a">
+        <stop stopColor="#FF9696" offset="0%" />
+        <stop stopColor="#FF2D2D" offset="100%" />
       </linearGradient>
-      <linearGradient x1="52.291%" y1="11.774%" x2="50%" y2="100%" id="heart_b">
-        <stop stopColor="#CFD5EA" offset="0%" />
-        <stop stopColor="#C1C9DE" offset="100%" />
-      </linearGradient>
-      <linearGradient x1="50%" y1="17.817%" x2="50%" y2="100%" id="heart_c">
-        <stop stopColor="#BFC8E8" offset="0%" />
-        <stop stopColor="#AFBAD3" offset="100%" />
+      <linearGradient x1="50%" y1="-15.026%" x2="50%" y2="94.224%" id="heart_b">
+        <stop stopColor="#FFABAB" offset="0%" />
+        <stop stopColor="#FF4949" offset="100%" />
       </linearGradient>
     </defs>
     <g fill="none" fillRule="evenodd">
       <path d="M0 0h50v50H0z" />
-      <path fill="url(#heart_a)" d="M25 1l21 13.09-21 13.092L4 14.09z" />
-      <path fill="url(#heart_b)" d="M4 35.91L25 49V27.182L4 14.09z" />
-      <path fill="url(#heart_c)" d="M46 35.91L25 49V27.182L46 14.09z" />
+      <path
+        d="M43.514 27.474l-16.83 17.79a2.29 2.29 0 0 1-3.367 0L6.486 27.473c-4.648-4.913-4.648-12.877 0-17.79 4.648-4.912 12.183-4.912 16.83 0L25 11.464l1.683-1.78c4.648-4.912 12.183-4.912 16.831 0 4.648 4.913 4.648 12.877 0 17.79z"
+        fill="url(#heart_a)"
+      />
+      <path
+        d="M25 46a2.31 2.31 0 0 1-1.683-.737L6.486 27.473c-4.648-4.912-4.648-12.876 0-17.789 4.648-4.912 12.183-4.912 16.83 0L25 11.464V46z"
+        fill="url(#heart_b)"
+      />
     </g>
   </svg>
 )
