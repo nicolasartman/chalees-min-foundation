@@ -1,6 +1,8 @@
 import { Box, Heading } from "grommet"
+import { lighten } from "polished"
 import { ReactNode } from "react"
 import { BaseSectionProps } from "./BaseSectionProps"
+import { purple } from "./colors"
 import SectionContainer from "./SectionContainer"
 
 export type InfoBlock = {
@@ -20,7 +22,17 @@ const Block = (props: BlockProps) => (
     fill="horizontal"
   >
     <Box direction="row" align="start" flex="grow" pad={{ right: "20px" }}>
-      {props.icon}
+      <Box
+        flex="shrink"
+        pad="small"
+        style={{
+          borderRadius: "50%",
+          border: `1px solid ${lighten(0.3, purple)}`,
+          background: "white",
+        }}
+      >
+        {props.icon}
+      </Box>
     </Box>
     <Box direction="column" fill="horizontal">
       <Heading level="3" margin="0">
