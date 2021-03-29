@@ -10,6 +10,7 @@ import Navigation from "./Navigation"
 import ContactUsSection from "./ContactUsSection"
 import OurValuesSection from "./OurValuesSection"
 import OurTrainingAndAssessmentSection from "./OurTrainingAndAssessmentSection"
+import OurPartnersSection from "./OurPartnersSection"
 
 const theme = deepMerge<ThemeType, ThemeType>(base, {
   global: {
@@ -78,7 +79,7 @@ const App = () => {
 
               <ContactUsSection isMobileLayout={isMobileLayout} />
 
-              <Box pad="xlarge">some other content</Box>
+              <OurPartnersSection isMobileLayout={isMobileLayout} />
             </Box>
           )
         }}
