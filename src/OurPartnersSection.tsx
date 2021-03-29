@@ -1,12 +1,12 @@
-import { Box, Grid, Heading, Image, Text } from "grommet"
+import { Box, Heading, Image, Text } from "grommet"
 import { BaseSectionProps } from "./BaseSectionProps"
-import SectionContainer from "./SectionContainer"
-import punjabSealUrl from "./images/partners/punjab-seal.jpg"
-import deepalayaLogoUrl from "./images/partners/deepalaya-logo.jpg"
 import bahujanLogoUrl from "./images/partners/bahujan-samajik-trust-logo.jpg"
-import sparshaTrustLogoUrl from "./images/partners/sparsha-trust-logo.jpg"
+import deepalayaLogoUrl from "./images/partners/deepalaya-logo.jpg"
 import gujaraSealUrl from "./images/partners/gujara-seal.jpg"
+import punjabSealUrl from "./images/partners/punjab-seal.jpg"
 import sahyogLogo from "./images/partners/sahyog-trust-logo.jpg"
+import sparshaTrustLogoUrl from "./images/partners/sparsha-trust-logo.jpg"
+import SectionContainer from "./SectionContainer"
 
 const partners = [
   {
