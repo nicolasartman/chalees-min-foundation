@@ -69,7 +69,7 @@ const blocks: Array<InfoBlock> = [
 
 const OurTrainingAndAssessmentSection = (props: BaseSectionProps) => (
   <InfoBlocksSection
-    title="Our Training and Assessment"
+    title="Our Training & Assessment"
     isMobileLayout={props.isMobileLayout}
     blocks={blocks}
   />
