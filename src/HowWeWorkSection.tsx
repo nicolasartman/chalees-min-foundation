@@ -27,6 +27,7 @@ const HowWeWorkSection = (props: BaseSectionProps) => (
     title="How we work"
     subtitle="After our teachers have taught a chapter from the textbook, our..."
     isMobileLayout={props.isMobileLayout}
+    alignIconsHorizontallyOnNarrowWidth
     blocks={blocks}
   />
 )
