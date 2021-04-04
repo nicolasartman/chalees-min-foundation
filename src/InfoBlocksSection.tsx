@@ -1,4 +1,4 @@
-import { Box, Heading } from "grommet"
+import { Box, Heading, ResponsiveContext } from "grommet"
 import { lighten } from "polished"
 import { ReactNode } from "react"
 import { BaseSectionProps } from "./BaseSectionProps"
@@ -16,32 +16,46 @@ type BlockProps = InfoBlock & {
   alignIconHorizontallyOnNarrowWidth?: boolean
 }
 
+/* Blocks position their icons relative to the content in a different way on different device widths
+ *
+ * On phones: above unless alignIconHorizontallyOnNarrowWidth is specified
+ * On tablet-sized devices: on the left
+ * On desktops and laptops: above
+ */
 const Block = (props: BlockProps) => (
-  <Box
-    direction={props.isMobileLayout && props.alignIconHorizontallyOnNarrowWidth ? "row" : "column"}
-    gap={props.isMobileLayout ? "small" : "medium"}
-    fill="horizontal"
-  >
-    <Box direction="row" align="start" flex="grow">
+  <ResponsiveContext.Consumer>
+    {(size) => (
       <Box
-        flex="shrink"
-        pad="small"
-        style={{
-          borderRadius: "50%",
-          border: `1px solid ${lighten(0.3, purple)}`,
-          background: "white",
-        }}
+        direction={
+          (size === "small" && props.alignIconHorizontallyOnNarrowWidth) || size === "mediumSmall"
+            ? "row"
+            : "column"
+        }
+        gap={props.isMobileLayout ? "small" : "medium"}
+        fill="horizontal"
       >
-        {props.icon}
+        <Box direction="row" align="start" flex="grow">
+          <Box
+            flex="shrink"
+            pad="small"
+            style={{
+              borderRadius: "50%",
+              border: `1px solid ${lighten(0.3, purple)}`,
+              background: "white",
+            }}
+          >
+            {props.icon}
+          </Box>
+        </Box>
+        <Box direction="column" fill="horizontal">
+          <Heading level="3" margin="0">
+            {props.title}
+          </Heading>
+          <Box>{props.body}</Box>
+        </Box>
       </Box>
-    </Box>
-    <Box direction="column" fill="horizontal">
-      <Heading level="3" margin="0">
-        {props.title}
-      </Heading>
-      <Box>{props.body}</Box>
-    </Box>
-  </Box>
+    )}
+  </ResponsiveContext.Consumer>
 )
 
 type InfoBlocksSectionProps = {
