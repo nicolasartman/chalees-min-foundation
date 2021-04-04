@@ -11,6 +11,7 @@ import ContactUsSection from "./ContactUsSection"
 import OurValuesSection from "./OurValuesSection"
 import OurTrainingAndAssessmentSection from "./OurTrainingAndAssessmentSection"
 import OurPartnersSection from "./OurPartnersSection"
+import TeacherTestimonialsSection from "./TeacherTestimonialsSection"
 
 const theme = deepMerge<ThemeType, ThemeType>(base, {
   global: {
@@ -74,6 +75,8 @@ const App = () => {
               <ExploreQuestionsSection size={size} isMobileLayout={isMobileLayout} />
 
               <OurTrainingAndAssessmentSection isMobileLayout={isMobileLayout} />
+
+              <TeacherTestimonialsSection isMobileLayout={isMobileLayout} />
 
               <OurValuesSection isMobileLayout={isMobileLayout} />
 
