@@ -1,7 +1,7 @@
 import { Box, Heading } from "grommet"
 import { heroBannerBackground } from "./colors"
 import { headerHeight } from "./constants"
-import ResponsiveYouTubeEmbed from "./ResponsiveYouTubeEmbed"
+import HeroBannerVideo from "./HeroBannerVideo"
 
 const MobileHeroBanner = () => (
   <Box
@@ -43,7 +43,27 @@ const MobileHeroBanner = () => (
       </Box>
       <Box height="20px" />
       <Box width="70%" flex="grow">
-        <ResponsiveYouTubeEmbed title="splash" ratio={16 / 9} videoId="3LHpE-rEZjM" />
+        <div
+          className="video"
+          style={{
+            position: "relative",
+            paddingBottom: `${(16 / 9) * 100}%`,
+            paddingTop: 25,
+            height: 0,
+          }}
+        >
+          <Box
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+            }}
+          >
+            <HeroBannerVideo />
+          </Box>
+        </div>
       </Box>
     </Box>
   </Box>
