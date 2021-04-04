@@ -214,20 +214,20 @@ const cards: Array<QuestionCardData> = [
     studentName: "Pallavi Muchadia",
     image: questions.redSky
   },
-  {
-    priority: 3,
-    question: "Why is peacock our national bird?",
-    studentName: "Shekh Nigaz",
-    grade: 6,
-    image: questions.peacock
-  },
-  {
-    priority: 3,
-    question: "Why is the sea water salty?",
-    studentName: "Makwana Krish Harashbhai",
-    grade: 8,
-    image: questions.seaWater
-  }
+  // {
+  //   priority: 3,
+  //   question: "Why is peacock our national bird?",
+  //   studentName: "Shekh Nigaz",
+  //   grade: 6,
+  //   image: questions.peacock
+  // },
+  // {
+  //   priority: 3,
+  //   question: "Why is the sea water salty?",
+  //   studentName: "Makwana Krish Harashbhai",
+  //   grade: 8,
+  //   image: questions.seaWater
+  // }
 ]
 
 const QuestionCard = (props: QuestionCardProps) => {
