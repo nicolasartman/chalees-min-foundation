@@ -61,7 +61,7 @@ const cards: Array<QuestionCardData> = [
     priority: 2,
     question: "How can I differentiate between an adjective and an adverb?",
     studentName: "Kirti",
-    image: questions.adjectiveVsAdverb
+    image: questions.adjectiveVsAdverb,
   },
   {
     priority: 2,
@@ -117,102 +117,102 @@ const cards: Array<QuestionCardData> = [
     question: "Why do they paint a giant X behind trains?",
     studentName: "Sadiya Pramod",
     grade: 9,
-    image: questions.trainX
+    image: questions.trainX,
   },
   {
     priority: 2,
     question: "Why is the value of pi 22 by 7?",
     studentName: "Vishal",
     grade: 8,
-    image: questions.pi
+    image: questions.pi,
   },
   {
     priority: 2,
-    question: "Why is \"an\" used before the word \"hour\"?",
+    question: 'Why is "an" used before the word "hour"?',
     studentName: "Dhoni",
     grade: 7,
-    image: questions.articleForTheWordHour
+    image: questions.articleForTheWordHour,
   },
   {
     priority: 2,
     question: "How did dinosaurs become extinct?",
     studentName: "Bhumika",
-    image: questions.dinosaurs
+    image: questions.dinosaurs,
   },
   {
     priority: 2,
     question: "Why does owl appear at night and not in day?",
     studentName: "Shekh Alafina",
     grade: 5,
-    image: questions.owl
+    image: questions.owl,
   },
   {
     priority: 2,
     question: "What is happiness?",
     studentName: "Anurag",
     grade: 9,
-    image: questions.happiness
+    image: questions.happiness,
   },
   {
     priority: 2,
     question: "What would happen if there were no moon?",
     studentName: "Kavita Sahni Sheikh",
     grade: 8,
-    image: questions.noMoon
+    image: questions.noMoon,
   },
   {
     priority: 2,
     question: "Why doesn't the moon fall to the earth?",
     studentName: "Pooja Chaurasiya",
-    image: questions.moonFallingToTheEarth
+    image: questions.moonFallingToTheEarth,
   },
   {
     priority: 3,
     question: "Why do some people have six fingers?",
     studentName: "Sadiya Khan",
     grade: 10,
-    image: questions.sixFingers
+    image: questions.sixFingers,
   },
   {
     priority: 3,
     question: "Why do I feel scared in the dark?",
     studentName: "Siddiki Farhan",
     grade: 9,
-    image: questions.scaredInTheDark
+    image: questions.scaredInTheDark,
   },
   {
     priority: 3,
     question: "How is washing detergent made?",
     studentName: "Simran",
     grade: 8,
-    image: questions.washingDetergent
+    image: questions.washingDetergent,
   },
   {
     priority: 3,
     question: "How does a chameleon change its color?",
     studentName: "Solanki",
     grade: 10,
-    image: questions.chameleon
+    image: questions.chameleon,
   },
   {
     priority: 3,
     question: "What would happen if there were no snakes in the food chain?",
     studentName: "Sarla Saket",
     grade: 5,
-    image: questions.snakesInTheFoodChain
+    image: questions.snakesInTheFoodChain,
   },
   {
     priority: 3,
     question: "How does water disappear?",
     studentName: "Hiren Muchadia",
     grade: 9,
-    image: questions.waterDisappear
+    image: questions.waterDisappear,
   },
   {
     priority: 3,
     question: "Why does the sky look red in the morning and evening?",
     studentName: "Pallavi Muchadia",
-    image: questions.redSky
+    image: questions.redSky,
   },
   // {
   //   priority: 3,
@@ -280,7 +280,8 @@ const QuestionCard = (props: QuestionCardProps) => {
                     color: "white",
                   }}
                 >
-                  {props.studentName}{props.grade && `, Grade ${props.grade}`}
+                  {props.studentName}
+                  {props.grade && `, Grade ${props.grade}`}
                 </Box>
               </Box>
             </Box>
@@ -305,7 +306,9 @@ const ExploreQuestionsSection = (props: ExploreQuestionsSectionProps) => {
   })
 
   return (
-    <SectionContainer>
+    // This section has a custom colored background effect that should occupy the whole section,
+    // so it doesn't need any padding on the container
+    <SectionContainer pad={{ vertical: "none" }}>
       <Box fill style={{ position: "relative" }}>
         <div ref={ref} className="keen-slider">
           {cards.map((card, index) => (
