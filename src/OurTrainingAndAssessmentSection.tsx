@@ -1,7 +1,8 @@
-import { Anchor, Box, Text } from "grommet"
+import { Anchor, Box, Image, Text } from "grommet"
 import { BaseSectionProps } from "./BaseSectionProps"
 import { BooksIcon, CertificateIcon } from "./Icons"
 import InfoBlocksSection, { InfoBlock } from "./InfoBlocksSection"
+import teacherPerformanceGraphicUrl from "./images/teacher-performance.png"
 
 const blocks: Array<InfoBlock> = [
   {
@@ -57,9 +58,14 @@ const blocks: Array<InfoBlock> = [
             <Anchor
               href="https://drive.google.com/file/d/1lIwxF04XxbVOtZlRDvawHhEsWLIS8KK6/view?usp=sharing"
               label="sample assessment result"
-            />{" "}
+            />
             from our collaboration with the Government of Punjab.
           </Text>
+          <Box pad={{ top: "medium" }}>
+            <Box background="rgba(0, 0, 0, 0.05)" round="24px" pad={{ horizontal: "small" }}>
+              <Image width="100%" height="auto" src={teacherPerformanceGraphicUrl} />
+            </Box>
+          </Box>
         </Box>
       </>
     ),
