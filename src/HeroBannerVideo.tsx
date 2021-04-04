@@ -1,4 +1,4 @@
-import { Box, Image, Stack } from "grommet"
+import { Box, Image, Stack, Spinner } from "grommet"
 import { PlayFill } from "grommet-icons"
 import { useState } from "react"
 import YouTubeVideo, { YouTubeProps } from "react-youtube"
@@ -16,6 +16,8 @@ const YouTubeVideoContainer = style(Box)({
 
 const HeroBannerVideo: React.FC<YouTubeProps> = (props) => {
   const [isAtStart, setIsAtStart] = useState(true)
+  const [isVideoBufferingOrPlaying, setIsVideoBufferingOrPlaying] = useState(false)
+  const [videoPlayer, setVideoPlayer] = useState<any>()
 
   return (
     <Box fill style={{ position: "relative" }}>
@@ -34,9 +36,13 @@ const HeroBannerVideo: React.FC<YouTubeProps> = (props) => {
             },
           }}
           videoId="3LHpE-rEZjM"
-          onPlay={() => setIsAtStart(false)}
+          onReady={({ target: youTubeVideoApi }) => setVideoPlayer(youTubeVideoApi)}
+          onPlay={() => {
+            setIsAtStart(false)
+          }}
           onEnd={({ target: youTubeVideoApi }) => {
             youTubeVideoApi.pauseVideo()
+            setIsVideoBufferingOrPlaying(false)
             setIsAtStart(true)
 
             // Reset the video to the start after a little time so the outro animation
@@ -54,16 +60,46 @@ const HeroBannerVideo: React.FC<YouTubeProps> = (props) => {
           left: 0,
           width: "100%",
           height: "100%",
-          pointerEvents: "none",
+          pointerEvents: isAtStart ? "auto" : "none",
+          cursor: isAtStart ? "pointer" : "auto",
           opacity: isAtStart ? 1 : 0,
           transition: "opacity 1s ease",
+        }}
+        role="button"
+        onClick={() => {
+          if (videoPlayer) {
+            videoPlayer.playVideo()
+            setIsVideoBufferingOrPlaying(true)
+          }
         }}
       >
         <Stack fill>
           <Image src={splashVideoThumbnail} width="100%" height="100%" />
           <Box fill align="center" justify="center">
             <Box background="rgba(0, 0, 0, 0.5)" round="50%" pad="large">
-              <PlayFill color={white} size="large" />
+              <Stack>
+                <Box
+                  style={{
+                    opacity: isVideoBufferingOrPlaying ? 0 : 1,
+                    transition: "opacity 0.25s ease",
+                  }}
+                >
+                  <PlayFill color={white} size="large" style={{ display: "block" }} />
+                </Box>
+                {
+                  <Box
+                    fill
+                    align="center"
+                    justify="center"
+                    style={{
+                      opacity: isVideoBufferingOrPlaying ? 1 : 0,
+                      transition: "opacity 0.25s ease",
+                    }}
+                  >
+                    <Spinner size="medium" fill color={white} />
+                  </Box>
+                }
+              </Stack>
             </Box>
           </Box>
         </Stack>
