@@ -70,8 +70,10 @@ const TeacherTestimonial: React.FC<Testimonial> = (testimonial) => (
   <ResponsiveContext.Consumer>
     {(size) => (
       <Box fill direction="row" align="center" pad={size === "small" ? "large" : "medium"}>
-        <Box direction="row" gap="medium">
-          <Box flex="grow">{testimonial.icon}</Box>
+        <Box direction={size === "small" ? "column" : "row"} gap="medium">
+          <Box flex="grow" direction="row" justify="center">
+            {testimonial.icon}
+          </Box>
           <Box direction="column" gap="small">
             <Text>{testimonial.body}</Text>
             <Text>
@@ -104,7 +106,7 @@ const TeacherTestimonialsSection = (props: BaseSectionProps) => {
             Teacher Testimonials
           </Heading>
         </Box>
-        <Box fill style={{ position: "relative", height: 300, minHeight: 300 }}>
+        <Box fill style={{ position: "relative" }}>
           <Box fill pad={{ horizontal: "large" }}>
             <div ref={ref} className="keen-slider" style={{ height: "100%" }}>
               {testimonials.map((testimonial) => (
