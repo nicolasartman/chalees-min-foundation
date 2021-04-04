@@ -4,25 +4,14 @@ import { useKeenSlider } from "keen-slider/react"
 import { desaturate, transparentize } from "polished"
 import { BaseSectionProps } from "./BaseSectionProps"
 import { cyan, darkGreen, darkPurple, darkRed, darkYellow, purple, red, white } from "./colors"
-import image5 from "./images/airConditioner.jpeg"
-import cylinder from "./images/cylinder.png"
-import eagleFlyingPatterns from "./images/eagleFlyingPatterns.png"
-import image4 from "./images/earthquake.png"
-import image2 from "./images/fruits.jpeg"
-import globalWarming from "./images/globalWarming.jpeg"
-import mango from "./images/mango.png"
-import moonHalf from "./images/moonHalf.png"
-import napoleon from "./images/napoleon.png"
-import image1 from "./images/satellites.png"
-import snakesHearing from "./images/snakesHearing.jpeg"
-import image3 from "./images/womensVotingRights.png"
+import { questions } from "./images"
 import SectionContainer from "./SectionContainer"
 
 type QuestionCardData = {
   priority: number
   question: string
   studentName: string
-  grade: number
+  grade?: number
   image: string
 }
 
@@ -38,85 +27,207 @@ const cards: Array<QuestionCardData> = [
     question: "Why don't satellites fall out of the sky?",
     studentName: "Aditya",
     grade: 8,
-    image: image1,
+    image: questions.satellites,
   },
   {
     priority: 1,
     question: "Why do fruits change their color?",
     studentName: "Nigaaz Nashreen",
     grade: 6,
-    image: image2,
+    image: questions.fruits,
   },
   {
     priority: 1,
     question: "Which country first gave women the right to vote?",
     studentName: "Nandini Vashisht",
     grade: 10,
-    image: image3,
+    image: questions.womensVotingRights,
   },
   {
     priority: 1,
     question: "What is the reason behind an earthquake?",
     studentName: "Akash",
     grade: 7,
-    image: image4,
+    image: questions.earthquake,
   },
   {
     priority: 1,
     question: "Why does an air conditioner drip water?",
     studentName: "Malek Abrar Ishakbhai",
     grade: 7,
-    image: image5,
+    image: questions.airConditioner,
+  },
+  {
+    priority: 2,
+    question: "How can I differentiate between an adjective and an adverb?",
+    studentName: "Kirti",
+    image: questions.adjectiveVsAdverb
   },
   {
     priority: 2,
     question: "Why does an eagle stop flapping its wings after reaching some height?",
     studentName: "Arti",
     grade: 7,
-    image: eagleFlyingPatterns,
+    image: questions.eagleFlyingPatterns,
   },
   {
     priority: 2,
     question: "Who was Napoleon and what did he do?",
     studentName: "Altaf",
     grade: 10,
-    image: napoleon,
+    image: questions.napoleon,
   },
   {
     priority: 2,
     question: "What is global warming?",
     studentName: "Hetal Girishbhai",
     grade: 8,
-    image: globalWarming,
+    image: questions.globalWarming,
   },
   {
     priority: 2,
     question: "What are the uses of a cylinder?",
     studentName: "Aman",
     grade: 8,
-    image: cylinder,
+    image: questions.cylinder,
   },
   {
     priority: 2,
     question: "Snakes don't have any ears. How are they able to hear?",
     studentName: "Anjuman Banu",
     grade: 7,
-    image: snakesHearing,
+    image: questions.snakesHearing,
   },
   {
     priority: 2,
     question: "Why does the moon look half?",
     studentName: "Saiba",
     grade: 7,
-    image: moonHalf,
+    image: questions.moonHalf,
   },
   {
     priority: 2,
     question: "Why is mango called the king of fruits?",
     studentName: "Jatin",
     grade: 5,
-    image: mango,
+    image: questions.mango,
   },
+  {
+    priority: 2,
+    question: "Why do they paint a giant X behind trains?",
+    studentName: "Sadiya Pramod",
+    grade: 9,
+    image: questions.trainX
+  },
+  {
+    priority: 2,
+    question: "Why is the value of pi 22 by 7?",
+    studentName: "Vishal",
+    grade: 8,
+    image: questions.pi
+  },
+  {
+    priority: 2,
+    question: "Why is \"an\" used before the word \"hour\"?",
+    studentName: "Dhoni",
+    grade: 7,
+    image: questions.articleForTheWordHour
+  },
+  {
+    priority: 2,
+    question: "How did dinosaurs become extinct?",
+    studentName: "Bhumika",
+    image: questions.dinosaurs
+  },
+  {
+    priority: 2,
+    question: "Why does owl appear at night and not in day?",
+    studentName: "Shekh Alafina",
+    grade: 5,
+    image: questions.owl
+  },
+  {
+    priority: 2,
+    question: "What is happiness?",
+    studentName: "Anurag",
+    grade: 9,
+    image: questions.happiness
+  },
+  {
+    priority: 2,
+    question: "What would happen if there were no moon?",
+    studentName: "Kavita Sahni Sheikh",
+    grade: 8,
+    image: questions.noMoon
+  },
+  {
+    priority: 2,
+    question: "Why doesn't the moon fall to the earth?",
+    studentName: "Pooja Chaurasiya",
+    image: questions.moonFallingToTheEarth
+  },
+  {
+    priority: 3,
+    question: "Why do some people have six fingers?",
+    studentName: "Sadiya Khan",
+    grade: 10,
+    image: questions.sixFingers
+  },
+  {
+    priority: 3,
+    question: "Why do I feel scared in the dark?",
+    studentName: "Siddiki Farhan",
+    grade: 9,
+    image: questions.scaredInTheDark
+  },
+  {
+    priority: 3,
+    question: "How is washing detergent made?",
+    studentName: "Simran",
+    grade: 8,
+    image: questions.washingDetergent
+  },
+  {
+    priority: 3,
+    question: "How does a chameleon change its color?",
+    studentName: "Solanki",
+    grade: 10,
+    image: questions.chameleon
+  },
+  {
+    priority: 3,
+    question: "What would happen if there were no snakes in the food chain?",
+    studentName: "Sarla Saket",
+    grade: 5,
+    image: questions.snakesInTheFoodChain
+  },
+  {
+    priority: 3,
+    question: "How does water disappear?",
+    studentName: "Hiren Muchadia",
+    grade: 9,
+    image: questions.waterDisappear
+  },
+  {
+    priority: 3,
+    question: "Why does the sky look red in the morning and evening?",
+    studentName: "Pallavi Muchadia",
+    image: questions.redSky
+  },
+  {
+    priority: 3,
+    question: "Why is peacock our national bird?",
+    studentName: "Shekh Nigaz",
+    grade: 6,
+    image: questions.peacock
+  },
+  {
+    priority: 3,
+    question: "Why is the sea water salty?",
+    studentName: "Makwana Krish Harashbhai",
+    grade: 8,
+    image: questions.seaWater
+  }
 ]
 
 const QuestionCard = (props: QuestionCardProps) => {
@@ -169,7 +280,7 @@ const QuestionCard = (props: QuestionCardProps) => {
                     color: "white",
                   }}
                 >
-                  {props.studentName}, Grade {props.grade}
+                  {props.studentName}{props.grade && `, Grade ${props.grade}`}
                 </Box>
               </Box>
             </Box>
