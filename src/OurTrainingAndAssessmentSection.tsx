@@ -54,12 +54,8 @@ const blocks: Array<InfoBlock> = [
               label="another rubric"
             />{" "}
             to assess teacher performance as they learn to promote student curiosity through our
-            training. Here is a{" "}
-            <Anchor
-              href="https://drive.google.com/file/d/1lIwxF04XxbVOtZlRDvawHhEsWLIS8KK6/view?usp=sharing"
-              label="sample assessment result"
-            />
-            from our collaboration with the Government of Punjab.
+            training. Here is a sample assessment result from our collaboration with the Government
+            of Punjab:
           </Text>
           <Box pad={{ top: "medium" }}>
             <Box background="rgba(0, 0, 0, 0.05)" round="24px" pad={{ horizontal: "small" }}>
