@@ -2,15 +2,15 @@ import { base, Box, Grommet, ResponsiveContext, ThemeType } from "grommet"
 import { deepMerge } from "grommet/utils"
 import { almostWhite, red } from "./colors"
 import { headerHeight } from "./constants"
+import ContactUsSection from "./ContactUsSection"
 import ExploreQuestionsSection from "./ExploreQuestionsSection"
 import HeroBanner from "./HeroBanner"
 import HowWeWorkSection from "./HowWeWorkSection"
 import MobileHeroBanner from "./MobileHeroBanner"
 import Navigation from "./Navigation"
-import ContactUsSection from "./ContactUsSection"
-import OurValuesSection from "./OurValuesSection"
-import OurTrainingAndAssessmentSection from "./OurTrainingAndAssessmentSection"
 import OurPartnersSection from "./OurPartnersSection"
+import OurTrainingAndAssessmentSection from "./OurTrainingAndAssessmentSection"
+import OurValuesSection from "./OurValuesSection"
 import TeacherTestimonialsSection from "./TeacherTestimonialsSection"
 
 const theme = deepMerge<ThemeType, ThemeType>(base, {
@@ -19,6 +19,10 @@ const theme = deepMerge<ThemeType, ThemeType>(base, {
       background: almostWhite,
       brand: red,
       accent: red,
+      focus: {
+        dark: "rgba(255, 255, 255, 0.3)",
+        light: "rgba(255, 255, 255, 0.3)",
+      },
     },
     font: {
       family:
