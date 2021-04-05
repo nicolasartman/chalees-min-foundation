@@ -1,4 +1,5 @@
-import { Box, Heading, Image, Text } from "grommet"
+import { Box, Button, Heading, Image, Text } from "grommet"
+import { Next as NextIcon, Previous as PreviousIcon } from "grommet-icons"
 import { useKeenSlider } from "keen-slider/react"
 import { BaseSectionProps } from "./BaseSectionProps"
 import bahujanLogoUrl from "./images/partners/bahujan-samajik-trust-logo.jpg"
@@ -37,37 +38,52 @@ const partners = [
 ]
 
 const OurPartnersSection = (props: BaseSectionProps) => {
-  const [ref] = useKeenSlider<HTMLDivElement>({
+  const [ref, slider] = useKeenSlider<HTMLDivElement>({
     slidesPerView: 2,
     loop: true,
   })
 
   return (
     <SectionContainer flex="grow" background="white">
-      <Box fill pad={{ horizontal: "40px" }} style={{ maxWidth: 1600 }} alignSelf="center">
+      <Box fill style={{ maxWidth: 1600 }} alignSelf="center">
         <Box direction="column" fill="horizontal" align="start">
           <Heading level={2} margin="0">
             Our Partners
           </Heading>
         </Box>
         <Box height="20px" />
-        <Box>
-          <div ref={ref} className="keen-slider">
-            {partners.map(({ imageUrl, name }) => (
-              <div className="keen-slider__slide" key={name}>
-                <Box justify="center" align="center" fill>
-                  <Box direction="column" pad="medium">
-                    <Image src={imageUrl} fit="contain" style={{ maxWidth: 250 }} />
-                    <Box>
-                      <Text textAlign="center" size="large">
-                        {name}
-                      </Text>
+        <Box style={{ position: "relative" }}>
+          <Box pad={{ horizontal: "40px" }}>
+            <div ref={ref} className="keen-slider">
+              {partners.map(({ imageUrl, name }) => (
+                <div className="keen-slider__slide" key={name}>
+                  <Box justify="center" align="center" fill>
+                    <Box direction="column" pad="medium">
+                      <Image src={imageUrl} fit="contain" style={{ maxWidth: 250 }} />
+                      <Box>
+                        <Text textAlign="center" size="large">
+                          {name}
+                        </Text>
+                      </Box>
                     </Box>
                   </Box>
-                </Box>
-              </div>
-            ))}
-          </div>
+                </div>
+              ))}
+            </div>
+          </Box>
+          {/* navigation */}
+          <Button
+            style={{ position: "absolute", top: "50%", left: 10, transform: "translateY(-50%)" }}
+            onClick={() => slider.prev()}
+          >
+            <PreviousIcon size={props.isMobileLayout ? "medium" : "large"} />
+          </Button>
+          <Button
+            style={{ position: "absolute", top: "50%", right: 10, transform: "translateY(-50%)" }}
+            onClick={() => slider.next()}
+          >
+            <NextIcon size={props.isMobileLayout ? "medium" : "large"} />
+          </Button>
         </Box>
       </Box>
     </SectionContainer>
