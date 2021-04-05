@@ -4,7 +4,15 @@ import { useKeenSlider } from "keen-slider/react"
 import { ReactNode, useContext } from "react"
 import { BaseSectionProps } from "./BaseSectionProps"
 import { purple, white } from "./colors"
-import { Person1Icon } from "./Icons"
+import {
+  BihariIcon,
+  DaljitIcon,
+  HarjitIcon,
+  MunishIcon,
+  PinkyIcon,
+  SandeepIcon,
+  ZakiraIcon,
+} from "./Icons"
 import SectionContainer from "./SectionContainer"
 
 type Testimonial = {
@@ -18,49 +26,49 @@ const testimonials: Array<Testimonial> = [
   {
     name: "Zakira Tebassum",
     location: "Delhi",
-    icon: <Person1Icon />,
+    icon: <ZakiraIcon />,
     body:
       "The training taught me and my students to relate our learning with real life experiences. We learnt to collect information from authentic sources, use pictures to explain concepts clearly, and to imagine more to learn more. The training has made me and my students more curious.",
   },
   {
     name: "Sandeep Rana",
     location: "Ludhiana, Punjab",
-    icon: <Person1Icon />,
+    icon: <SandeepIcon />,
     body:
       "The distance between teacher and student will decrease through this training. I learnt how to create a discussion-based classroom, and how to create a friendly atmosphere in the classroom. Both these things will encourage my students to ask more questions.",
   },
   {
     name: "Harjit Kaur",
     location: "Mohali, Punjab",
-    icon: <Person1Icon />,
+    icon: <HarjitIcon />,
     body:
       "On day 1 of training, I was skeptical. I did not think my students could ask questions. Maybe they would in higher classes. I had my doubts if young students would be able to ask questions. But working through this training, I am convinced that if we give responsibility to young students they can also begin to ask and answer questions.",
   },
   {
     name: "Munish Kumar",
     location: "Jalandhar, Punjab",
-    icon: <Person1Icon />,
+    icon: <MunishIcon />,
     body:
       "Through this training I have learnt how to motivate students to ask questions. I have also learnt a framework that students can use to find the answers to their questions.",
   },
   {
     name: "Pinky",
     location: "Delhi",
-    icon: <Person1Icon />,
+    icon: <PinkyIcon />,
     body:
       "Now my students don’t depend only on the concepts given in the book. But they relate those topics to their day to day experiences. I got positive results by using this training in my teaching process.",
   },
   {
     name: "Daljit Singh",
     location: "Bathinda, Punjab",
-    icon: <Person1Icon />,
+    icon: <DaljitIcon />,
     body:
       "The more our students explore the answers to their own questions, the more they will learn. I learnt how to bring this new teaching and learning methodology inside the classroom through the Chalees training.",
   },
   {
     name: "Bihari Lal",
     location: "Faridkot, Punjab",
-    icon: <Person1Icon />,
+    icon: <BihariIcon />,
     body:
       "This training is going to compel me to make certain changes in my behaviour and teaching process. Interaction with other intellectuals also gave me a chance for introspection. This training is going to help many students with whom I am going to interact in future.",
   },
