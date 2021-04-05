@@ -428,51 +428,53 @@ export const BooksIcon = () => (
 )
 
 export const MoleculeIcon = () => (
-  <svg width={50} height={50}>
-    <defs>
-      <linearGradient x1="48.979%" y1="20.684%" x2="48.979%" y2="104.349%" id="molecule_a">
-        <stop stopColor="#62698F" offset="0%" />
-        <stop stopColor="#475078" offset="100%" />
-      </linearGradient>
-      <linearGradient x1="50%" y1="-15.026%" x2="50%" y2="94.224%" id="molecule_b">
-        <stop stopColor="#FF9696" offset="0%" />
-        <stop stopColor="#FF2D2D" offset="100%" />
-      </linearGradient>
-      <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="molecule_c">
-        <stop stopColor="#00D3FF" offset="0%" />
-        <stop stopColor="#098EFF" offset="100%" />
-      </linearGradient>
-      <linearGradient x1="53.481%" y1="0%" x2="53.481%" y2="100%" id="molecule_d">
-        <stop stopColor="#499CFF" offset="0%" />
-        <stop stopColor="#7E41FF" offset="100%" />
-      </linearGradient>
-      <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="molecule_e">
-        <stop stopColor="#FFCB00" offset="0%" />
-        <stop stopColor="#FF7E00" offset="100%" />
-      </linearGradient>
-      <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="molecule_f">
-        <stop stopColor="#A4E14A" offset="0%" />
-        <stop stopColor="#5FDA6B" offset="100%" />
-      </linearGradient>
-      <linearGradient x1="50%" y1="0%" x2="58.086%" y2="100%" id="molecule_g">
-        <stop stopColor="#D9DEF2" offset="0%" />
-        <stop stopColor="#B6C1DC" offset="100%" />
-      </linearGradient>
-    </defs>
-    <g fill="none" fillRule="evenodd">
-      <path d="M0 0h50v50H0z" />
-      <path
-        fill="url(#molecule_a)"
-        d="M24.174 24.704L6.534 35.845l-1.068-1.69 17.88-11.293L5.333 6.745l1.334-1.49L25 21.658 43.333 5.255l1.334 1.49-18.05 16.15 17.948 12.28-1.13 1.65-17.214-11.778 1.774 16.848-1.99.21z"
-      />
-      <circle fill="url(#molecule_b)" cx={25} cy={23} r={7} />
-      <circle fill="url(#molecule_c)" cx={44} cy={6} r={4} />
-      <circle fill="url(#molecule_d)" cx={44} cy={36} r={4} />
-      <circle fill="url(#molecule_e)" cx={6} cy={35} r={4} />
-      <circle fill="url(#molecule_f)" cx={6} cy={6} r={4} />
-      <circle fill="url(#molecule_g)" cx={27} cy={41} r={4} />
-    </g>
-  </svg>
+  <Box direction="row" align="center" justify="center">
+    <svg width={46} height={46} viewBox="0 0 50 50">
+      <defs>
+        <linearGradient x1="48.979%" y1="20.684%" x2="48.979%" y2="104.349%" id="molecule_a">
+          <stop stopColor="#62698F" offset="0%" />
+          <stop stopColor="#475078" offset="100%" />
+        </linearGradient>
+        <linearGradient x1="50%" y1="-15.026%" x2="50%" y2="94.224%" id="molecule_b">
+          <stop stopColor="#FF9696" offset="0%" />
+          <stop stopColor="#FF2D2D" offset="100%" />
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="molecule_c">
+          <stop stopColor="#00D3FF" offset="0%" />
+          <stop stopColor="#098EFF" offset="100%" />
+        </linearGradient>
+        <linearGradient x1="53.481%" y1="0%" x2="53.481%" y2="100%" id="molecule_d">
+          <stop stopColor="#499CFF" offset="0%" />
+          <stop stopColor="#7E41FF" offset="100%" />
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="molecule_e">
+          <stop stopColor="#FFCB00" offset="0%" />
+          <stop stopColor="#FF7E00" offset="100%" />
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="molecule_f">
+          <stop stopColor="#A4E14A" offset="0%" />
+          <stop stopColor="#5FDA6B" offset="100%" />
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="58.086%" y2="100%" id="molecule_g">
+          <stop stopColor="#D9DEF2" offset="0%" />
+          <stop stopColor="#B6C1DC" offset="100%" />
+        </linearGradient>
+      </defs>
+      <g fill="none" fillRule="evenodd" transform="translate(0 3)">
+        <path d="M0 0h50v50H0z" />
+        <path
+          fill="url(#molecule_a)"
+          d="M24.174 24.704L6.534 35.845l-1.068-1.69 17.88-11.293L5.333 6.745l1.334-1.49L25 21.658 43.333 5.255l1.334 1.49-18.05 16.15 17.948 12.28-1.13 1.65-17.214-11.778 1.774 16.848-1.99.21z"
+        />
+        <circle fill="url(#molecule_b)" cx={25} cy={23} r={7} />
+        <circle fill="url(#molecule_c)" cx={44} cy={6} r={4} />
+        <circle fill="url(#molecule_d)" cx={44} cy={36} r={4} />
+        <circle fill="url(#molecule_e)" cx={6} cy={35} r={4} />
+        <circle fill="url(#molecule_f)" cx={6} cy={6} r={4} />
+        <circle fill="url(#molecule_g)" cx={27} cy={41} r={4} />
+      </g>
+    </svg>
+  </Box>
 )
 
 export const Person1Icon = () => (
