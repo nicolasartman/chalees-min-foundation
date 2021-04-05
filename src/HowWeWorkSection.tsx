@@ -1,5 +1,5 @@
 import { BaseSectionProps } from "./BaseSectionProps"
-import { BinocularsIcon, BrainIcon, MagnifyingGlassAndPaperIcon, PodiumIcon } from "./Icons"
+import { BinocularsIcon, BrainIcon, PodiumIcon } from "./Icons"
 import InfoBlocksSection, { InfoBlock } from "./InfoBlocksSection"
 
 const blocks: Array<InfoBlock> = [
