@@ -116,12 +116,9 @@ const Header = (props: BaseSectionProps) => {
                     fill
                     color={white}
                     style={{ textAlign: "right" }}
-                    onClick={() => window.location.assign("https://chaleesmin.school")}
+                    onClick={() => window.open("https://chaleesmin.school", "_blank")}
                   >
                     Library
-                  </Button>
-                  <Button plain fill color={white} style={{ textAlign: "right" }}>
-                    About
                   </Button>
                 </Box>
               </Box>
