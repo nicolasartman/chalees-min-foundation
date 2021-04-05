@@ -51,13 +51,13 @@ const OurPartnersSection = (props: BaseSectionProps) => {
           </Heading>
         </Box>
         <Box height="20px" />
-        <Box height="300px">
+        <Box>
           <div ref={ref} className="keen-slider">
             {partners.map(({ imageUrl, name }) => (
               <div className="keen-slider__slide" key={name}>
                 <Box justify="center" align="center" fill>
                   <Box direction="column" pad="medium">
-                    <Image src={imageUrl} fit="contain" />
+                    <Image src={imageUrl} fit="contain" style={{ maxWidth: 250 }} />
                     <Box>
                       <Text textAlign="center" size="large">
                         {name}
