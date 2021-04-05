@@ -1,5 +1,5 @@
 import { BaseSectionProps } from "./BaseSectionProps"
-import { BrainIcon, MagnifyingGlassAndPaperIcon, PodiumIcon } from "./Icons"
+import { BinocularsIcon, BrainIcon, MagnifyingGlassAndPaperIcon, PodiumIcon } from "./Icons"
 import InfoBlocksSection, { InfoBlock } from "./InfoBlocksSection"
 
 const blocks: Array<InfoBlock> = [
@@ -13,7 +13,7 @@ const blocks: Array<InfoBlock> = [
     title: "Students conduct research",
     body:
       "by asking an older sibling, or by reading a book from the library, or by searching the Internet.",
-    icon: <MagnifyingGlassAndPaperIcon />,
+    icon: <BinocularsIcon />,
   },
   {
     title: "Students present answers",

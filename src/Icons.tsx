@@ -116,6 +116,88 @@ export const MagnifyingGlassAndPaperIcon = () => (
   </svg>
 )
 
+export const BinocularsIcon = () => (
+  <svg width={50} height={50}>
+    <defs>
+      <linearGradient x1="48.979%" y1="20.684%" x2="48.979%" y2="104.349%" id="binoculars_a">
+        <stop stopColor="#62698F" offset="0%" />
+        <stop stopColor="#475078" offset="100%" />
+      </linearGradient>
+      <linearGradient x1="48.979%" y1="20.684%" x2="48.979%" y2="159.273%" id="binoculars_b">
+        <stop stopColor="#7B83AE" offset="0%" />
+        <stop stopColor="#475078" offset="100%" />
+      </linearGradient>
+      <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="binoculars_c">
+        <stop stopColor="#00D3FF" offset="0%" />
+        <stop stopColor="#098EFF" offset="100%" />
+      </linearGradient>
+      <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="binoculars_d">
+        <stop stopColor="#46DFFF" offset="0%" />
+        <stop stopColor="#1895FF" offset="100%" />
+      </linearGradient>
+      <linearGradient x1="48.979%" y1="20.684%" x2="48.979%" y2="104.349%" id="binoculars_e">
+        <stop stopColor="#62698F" offset="0%" />
+        <stop stopColor="#475078" offset="100%" />
+      </linearGradient>
+      <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="binoculars_f">
+        <stop stopColor="#DFE4F4" offset="0%" />
+        <stop stopColor="#C8D0E6" offset="100%" />
+      </linearGradient>
+      <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="binoculars_g">
+        <stop stopColor="#EDF1FF" offset="0%" />
+        <stop stopColor="#C8D0E6" offset="100%" />
+      </linearGradient>
+    </defs>
+    <g fill="none" fillRule="evenodd">
+      <path d="M0 0h50v50H0z" />
+      <path fill="url(#binoculars_a)" d="M19 14h12v13H19z" />
+      <path fill="url(#binoculars_b)" d="M19 14h12v7H19z" />
+      <path
+        d="M22 36.4H3l4.75-25.2C8.254 7.242 10.94 4 14.875 4S22 7.224 22 11.2v25.2z"
+        fill="url(#binoculars_c)"
+      />
+      <path
+        d="M18 36.4h-7.25L14.886 4A7.035 7.035 0 0 1 18 4.728V36.4z"
+        fill="url(#binoculars_d)"
+      />
+      <ellipse fill="url(#binoculars_e)" cx={12.5} cy={36.4} rx={9.5} ry={9.6} />
+      <ellipse fill="url(#binoculars_f)" cx={12.5} cy={36.4} rx={7.125} ry={7.2} />
+      <path
+        d="M10.584 43.337a7.118 7.118 0 0 1-3.453-2.204l10.109-10.11a7.211 7.211 0 0 1 2.144 3.513l-8.8 8.8zm-4.059-3.013a7.201 7.201 0 0 1-.879-1.95l8.88-8.879a7.06 7.06 0 0 1 1.92.909l-9.92 9.92z"
+        fill="url(#binoculars_g)"
+      />
+      <path
+        d="M28 36.4V11.2C28 7.224 31.19 4 35.125 4s6.621 3.242 7.125 7.2L47 36.4H28z"
+        fill="url(#binoculars_c)"
+      />
+      <path
+        d="M32 36.4V4.728A7.035 7.035 0 0 1 35.114 4l4.136 32.4H32z"
+        fill="url(#binoculars_d)"
+      />
+      <ellipse
+        fill="url(#binoculars_e)"
+        transform="matrix(-1 0 0 1 75 0)"
+        cx={37.5}
+        cy={36.4}
+        rx={9.5}
+        ry={9.6}
+      />
+      <ellipse
+        fill="url(#binoculars_f)"
+        transform="matrix(-1 0 0 1 75 0)"
+        cx={37.5}
+        cy={36.4}
+        rx={7.125}
+        ry={7.2}
+      />
+      <path
+        d="M39.416 43.337l-8.8-8.8a7.211 7.211 0 0 1 2.144-3.513l10.11 10.109a7.118 7.118 0 0 1-3.454 2.204zm4.059-3.013l-9.92-9.92a7.06 7.06 0 0 1 1.92-.909l8.879 8.88a7.201 7.201 0 0 1-.88 1.95z"
+        fill="url(#binoculars_g)"
+      />
+    </g>
+  </svg>
+)
+
 export const PodiumIcon = () => (
   <svg width={50} height={50}>
     <defs>
