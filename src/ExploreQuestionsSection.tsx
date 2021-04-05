@@ -360,7 +360,7 @@ const ExploreQuestionsSection = (props: ExploreQuestionsSectionProps) => {
         >
           <Box fill style={{ position: "relative" }}>
             {/* Background image */}
-            <Image fit="cover" src={openedCard.imageUrl} />
+            <Image fit="contain" src={openedCard.imageUrl} />
 
             {/* Details */}
             <Box
