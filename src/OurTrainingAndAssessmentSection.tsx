@@ -1,4 +1,4 @@
-import { Anchor, Box, Image, Text } from "grommet"
+import { Anchor, Box, Image, ResponsiveContext, Text } from "grommet"
 import { BaseSectionProps } from "./BaseSectionProps"
 import { BooksIcon, CertificateIcon } from "./Icons"
 import InfoBlocksSection, { InfoBlock } from "./InfoBlocksSection"
@@ -14,6 +14,7 @@ const blocks: Array<InfoBlock> = [
         <Anchor
           href="https://drive.google.com/file/d/17ZgyfKS4YMrttEGevfqdZtSjE15Waybb/view?usp=sharing"
           label="click here"
+          target="_blank"
         />
         .
         <ul>
@@ -41,6 +42,7 @@ const blocks: Array<InfoBlock> = [
             <Anchor
               href="https://drive.google.com/file/d/1QWDSUlIu4krg_pYpGPG_USpwOZ24zym0/view?usp=sharing"
               label="this rubric"
+              target="_blank"
             />{" "}
             to assess what the learner did well and how they can improve. Our teachers use this
             assessment tool to provide low-stakes, formative feedback to the student.
@@ -52,15 +54,27 @@ const blocks: Array<InfoBlock> = [
             <Anchor
               href="https://drive.google.com/file/d/19dcCJVdaInZGFWxzfffOjAjPH1-aelQ1/view?usp=sharing"
               label="another rubric"
+              target="_blank"
             />{" "}
             to assess teacher performance as they learn to promote student curiosity through our
             training. Here is a sample assessment result from our collaboration with the Government
             of Punjab:
           </Text>
           <Box pad={{ top: "medium" }}>
-            <Box background="rgba(0, 0, 0, 0.05)" round="24px" pad={{ horizontal: "small" }}>
-              <Image width="100%" height="auto" src={teacherPerformanceGraphicUrl} />
-            </Box>
+            <ResponsiveContext.Consumer>
+              {(size) => (
+                <Box
+                  background="rgba(0, 0, 0, 0.05)"
+                  round="24px"
+                  pad={{ horizontal: "small" }}
+                  style={{
+                    maxWidth: ["medium", "large"].includes(size) ? 500 : "100%",
+                  }}
+                >
+                  <Image width="100%" height="auto" src={teacherPerformanceGraphicUrl} />
+                </Box>
+              )}
+            </ResponsiveContext.Consumer>
           </Box>
         </Box>
       </>
