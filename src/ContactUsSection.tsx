@@ -1,4 +1,4 @@
-import { Anchor, Text } from "grommet"
+import { Anchor, Box, Text } from "grommet"
 import { Mail as MailIcon, Youtube as YoutubeIcon } from "grommet-icons"
 import { BaseSectionProps } from "./BaseSectionProps"
 import { purple } from "./colors"
@@ -17,7 +17,11 @@ const blocks: Array<InfoBlock> = [
         />
       </Text>
     ),
-    icon: <MailIcon color={purple} />,
+    icon: (
+      <Box pad="2px">
+        <MailIcon color={purple} size="46px" />
+      </Box>
+    ),
   },
   {
     body: (
@@ -31,7 +35,11 @@ const blocks: Array<InfoBlock> = [
         .
       </Text>
     ),
-    icon: <YoutubeIcon color="red" />,
+    icon: (
+      <Box pad="2px">
+        <YoutubeIcon color="red" size="46px" />
+      </Box>
+    ),
   },
 ]
 
