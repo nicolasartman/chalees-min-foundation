@@ -81,7 +81,7 @@ const Header = (props: BaseSectionProps) => {
                   plain
                   color={white}
                   style={{ textAlign: "right" }}
-                  onClick={() => window.location.assign("https://chaleesmin.school")}
+                  onClick={() => window.open("https://chaleesmin.school", "_blank")}
                 >
                   Library
                 </Button>
