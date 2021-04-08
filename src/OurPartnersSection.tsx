@@ -10,14 +10,22 @@ import sahyogLogo from "./images/partners/sahyog-trust-logo.jpg"
 import sparshaTrustLogoUrl from "./images/partners/sparsha-trust-logo.jpg"
 import SectionContainer from "./SectionContainer"
 
-const partners = [
+type Partner = {
+  name: string
+  imageUrl: string
+  maxWidth?: number
+}
+
+const partners: Array<Partner> = [
   {
     name: "Goverment of Punjab",
     imageUrl: punjabSealUrl,
+    maxWidth: 150,
   },
   {
     name: "Goverment of Gujarat",
     imageUrl: gujaratSealUrl,
+    maxWidth: 150,
   },
   {
     name: "Deepalaya",
@@ -46,23 +54,28 @@ const OurPartnersSection = (props: BaseSectionProps) => {
   return (
     <SectionContainer flex="grow" background="white">
       <Box fill style={{ maxWidth: 1600 }} alignSelf="center">
-        <Box direction="column" fill="horizontal" align="start">
-          <Heading level={2} margin="0">
-            Our Partners
-          </Heading>
+        <Box direction="column" fill="horizontal" align="start" pad={{ horizontal: "large" }}>
+          <Heading level="2">Our Partners</Heading>
         </Box>
         <Box height="20px" />
         <Box style={{ position: "relative" }}>
           <Box pad={{ horizontal: "40px" }}>
             <div ref={ref} className="keen-slider">
-              {partners.map(({ imageUrl, name }) => (
-                <div className="keen-slider__slide" key={name}>
-                  <Box justify="center" align="center" fill>
+              {partners.map((partner) => (
+                <div className="keen-slider__slide" key={partner.name}>
+                  <Box direction="row" justify="center" align="end" fill>
                     <Box direction="column" pad="medium">
-                      <Image src={imageUrl} fit="contain" style={{ maxWidth: 250 }} />
+                      <Image
+                        alignSelf="center"
+                        src={partner.imageUrl}
+                        fit="contain"
+                        width="100%"
+                        height="auto"
+                        style={{ maxWidth: partner.maxWidth ?? 250 }}
+                      />
                       <Box>
                         <Text textAlign="center" size="large">
-                          {name}
+                          {partner.name}
                         </Text>
                       </Box>
                     </Box>
@@ -71,6 +84,7 @@ const OurPartnersSection = (props: BaseSectionProps) => {
               ))}
             </div>
           </Box>
+
           {/* navigation */}
           <Button
             style={{ position: "absolute", top: "50%", left: 10, transform: "translateY(-50%)" }}
