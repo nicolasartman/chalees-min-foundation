@@ -18,12 +18,12 @@ type Partner = {
 
 const partners: Array<Partner> = [
   {
-    name: "Goverment of Punjab",
+    name: "Government of Punjab",
     imageUrl: punjabSealUrl,
     maxWidth: 150,
   },
   {
-    name: "Goverment of Gujarat",
+    name: "Government of Gujarat",
     imageUrl: gujaratSealUrl,
     maxWidth: 150,
   },
