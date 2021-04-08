@@ -85,9 +85,6 @@ const Header = (props: BaseSectionProps) => {
                 >
                   Library
                 </Button>
-                <Button plain color={white} style={{ textAlign: "right" }}>
-                  About
-                </Button>
               </Box>
             )}
           </Box>
