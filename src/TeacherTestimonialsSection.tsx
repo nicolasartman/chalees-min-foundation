@@ -77,7 +77,7 @@ const testimonials: Array<Testimonial> = [
 const TeacherTestimonial: React.FC<Testimonial> = (testimonial) => (
   <ResponsiveContext.Consumer>
     {(size) => (
-      <Box fill direction="row" align="center" pad={size === "small" ? "large" : "medium"}>
+      <Box fill direction="row" align="start" pad={size === "small" ? "large" : "medium"}>
         <Box direction={size === "small" ? "column" : "row"} gap="medium">
           <Box flex="grow" direction="row" justify="center">
             {testimonial.icon}
