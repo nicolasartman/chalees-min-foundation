@@ -1,6 +1,6 @@
 import { Box, Image, Stack, Spinner } from "grommet"
 import { PlayFill } from "grommet-icons"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import YouTubeVideo, { YouTubeProps } from "react-youtube"
 import style from "styled-components"
 import { white } from "./colors"
@@ -14,16 +14,9 @@ const YouTubeVideoContainer = style(Box)({
 })
 
 const HeroBannerVideo: React.FC<YouTubeProps> = (props) => {
-  // Delay the youtube video embed for a little to reduce the initial page load time
-  // and make lighthouse happy for better SEO
-  const [youTubeEmbedDeferralIsComplete, setYouTubeEmbedDeferralIsComplete] = useState(false)
   const [isAtStart, setIsAtStart] = useState(true)
   const [isVideoBufferingOrPlaying, setIsVideoBufferingOrPlaying] = useState(false)
   const [videoPlayer, setVideoPlayer] = useState<any>()
-
-  useEffect(() => {
-    window.setTimeout(() => setYouTubeEmbedDeferralIsComplete(true), 1000)
-  }, [])
 
   return (
     <Box fill style={{ position: "relative" }}>
@@ -31,35 +24,33 @@ const HeroBannerVideo: React.FC<YouTubeProps> = (props) => {
         fill
         style={{ opacity: isAtStart ? 0 : 1, transition: "opacity 1s ease" }}
       >
-        {youTubeEmbedDeferralIsComplete ? (
-          <YouTubeVideo
-            id="splash-video"
-            className="test"
-            opts={{
-              height: "100%",
-              width: "100%",
-              playerVars: {
-                modestbranding: 1,
-              },
-            }}
-            videoId="3LHpE-rEZjM"
-            onReady={({ target: youTubeVideoApi }) => setVideoPlayer(youTubeVideoApi)}
-            onPlay={() => {
-              setIsAtStart(false)
-            }}
-            onEnd={({ target: youTubeVideoApi }) => {
-              youTubeVideoApi.pauseVideo()
-              setIsVideoBufferingOrPlaying(false)
-              setIsAtStart(true)
+        <YouTubeVideo
+          id="splash-video"
+          className="test"
+          opts={{
+            height: "100%",
+            width: "100%",
+            playerVars: {
+              modestbranding: 1,
+            },
+          }}
+          videoId="3LHpE-rEZjM"
+          onReady={({ target: youTubeVideoApi }) => setVideoPlayer(youTubeVideoApi)}
+          onPlay={() => {
+            setIsAtStart(false)
+          }}
+          onEnd={({ target: youTubeVideoApi }) => {
+            youTubeVideoApi.pauseVideo()
+            setIsVideoBufferingOrPlaying(false)
+            setIsAtStart(true)
 
-              // Reset the video to the start after a little time so the outro animation
-              // has time to play without the video visually 'jumping' as it fades in.
-              window.setTimeout(() => {
-                youTubeVideoApi.seekTo(0)
-              }, 1000)
-            }}
-          />
-        ) : null}
+            // Reset the video to the start after a little time so the outro animation
+            // has time to play without the video visually 'jumping' as it fades in.
+            window.setTimeout(() => {
+              youTubeVideoApi.seekTo(0)
+            }, 1000)
+          }}
+        />
       </YouTubeVideoContainer>
       <Box
         style={{
