@@ -4,6 +4,7 @@ import "keen-slider/keen-slider.min.css"
 import { useKeenSlider } from "keen-slider/react"
 import { desaturate, transparentize } from "polished"
 import { useState } from "react"
+import { LazyLoadImage } from "react-lazy-load-image-component"
 import { BaseSectionProps } from "./BaseSectionProps"
 import {
   almostWhite,
@@ -255,7 +256,7 @@ const QuestionCard = (props: QuestionCardProps) => {
           onClick={props.onClick}
         >
           <Box style={{ position: "absolute", height: "100%", width: "100%" }}>
-            <Image fit="cover" src={props.imageUrl} fill={false} />
+            <LazyLoadImage style={{ objectFit: "contain" }} src={props.imageUrl} />
           </Box>
           <Box style={{ position: "absolute", top: 0, left: 0 }} fill>
             <Box direction="column" align="center" justify="center" fill>
