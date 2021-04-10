@@ -4,7 +4,6 @@ import { useState } from "react"
 import YouTubeVideo, { YouTubeProps } from "react-youtube"
 import style from "styled-components"
 import { white } from "./colors"
-import splashVideoThumbnail from "./images/splashVideoThumbnail.jpg"
 
 const YouTubeVideoContainer = style(Box)({
   // Fixes the dimensions on the extra wrapper div that the react-youtube library creates
@@ -74,7 +73,11 @@ const HeroBannerVideo: React.FC<YouTubeProps> = (props) => {
         }}
       >
         <Stack fill>
-          <Image src={splashVideoThumbnail} width="100%" height="100%" />
+          <Image
+            src={`${process.env.PUBLIC_URL}/splash-video-cover.jpg`}
+            width="100%"
+            height="100%"
+          />
           <Box fill align="center" justify="center">
             <Box background="rgba(0, 0, 0, 0.5)" round="50%" pad="large">
               <Stack>
