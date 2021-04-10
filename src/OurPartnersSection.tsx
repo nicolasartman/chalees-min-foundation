@@ -68,6 +68,7 @@ const OurPartnersSection = (props: BaseSectionProps) => {
                     <Box direction="column" pad="medium" align="center">
                       <LazyLoadImage
                         src={partner.imageUrl}
+                        alt={`${partner.name} Logo`}
                         style={{
                           objectFit: "contain",
                           width: "100%",

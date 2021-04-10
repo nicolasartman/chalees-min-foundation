@@ -71,8 +71,13 @@ const blocks: Array<InfoBlock> = [
                   style={{ maxWidth: ["medium", "large"].includes(size) ? 500 : "100%" }}
                 >
                   <LazyLoadImage
-                    style={{ width: "100%", height: "auto" }}
                     src={teacherPerformanceGraphicUrl}
+                    alt={
+                      "Teacher performance graph showing that teachers " +
+                      "improved their assessement scores from 2.54 to 3.41 " +
+                      "through the training."
+                    }
+                    style={{ width: "100%", height: "auto" }}
                   />
                 </Box>
               )}

@@ -75,6 +75,7 @@ const HeroBannerVideo: React.FC<YouTubeProps> = (props) => {
         <Stack fill>
           <Image
             src={`${process.env.PUBLIC_URL}/splash-video-cover.jpg`}
+            alt="Student Driven Learning video"
             width="100%"
             height="100%"
           />
