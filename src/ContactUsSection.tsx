@@ -29,6 +29,7 @@ const blocks: Array<InfoBlock> = [
         To watch more videos of student questions and teacher training, visit our{" "}
         <Anchor
           href="https://www.youtube.com/channel/UCjQUNUa1BYtOTP7F9r1tkKw/videos"
+          rel="noopener noreferrer"
           label="Youtube channel"
           target="_blank"
         />
