@@ -256,7 +256,7 @@ const QuestionCard = (props: QuestionCardProps) => {
           onClick={props.onClick}
         >
           <Box style={{ position: "absolute", height: "100%", width: "100%" }}>
-            <LazyLoadImage style={{ objectFit: "contain" }} src={props.imageUrl} alt="" />
+            <LazyLoadImage style={{ objectFit: "cover" }} src={props.imageUrl} alt="" />
           </Box>
           <Box style={{ position: "absolute", top: 0, left: 0 }} fill>
             <Box direction="column" align="center" justify="center" fill>
