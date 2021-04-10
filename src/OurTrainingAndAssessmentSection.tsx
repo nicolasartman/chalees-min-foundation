@@ -14,6 +14,7 @@ const blocks: Array<InfoBlock> = [
         are some questions we discuss in our training. For more details,{" "}
         <Anchor
           href="https://drive.google.com/file/d/17ZgyfKS4YMrttEGevfqdZtSjE15Waybb/view?usp=sharing"
+          rel="noopener noreferrer"
           label="click here"
           target="_blank"
         />
@@ -42,6 +43,7 @@ const blocks: Array<InfoBlock> = [
             <em>Assessing Students</em> — Each time a student submits a question, we use{" "}
             <Anchor
               href="https://drive.google.com/file/d/1QWDSUlIu4krg_pYpGPG_USpwOZ24zym0/view?usp=sharing"
+              rel="noopener noreferrer"
               label="this rubric"
               target="_blank"
             />{" "}
@@ -54,6 +56,7 @@ const blocks: Array<InfoBlock> = [
             <em>Assessing Teachers</em> — We use{" "}
             <Anchor
               href="https://drive.google.com/file/d/19dcCJVdaInZGFWxzfffOjAjPH1-aelQ1/view?usp=sharing"
+              rel="noopener noreferrer"
               label="another rubric"
               target="_blank"
             />{" "}
