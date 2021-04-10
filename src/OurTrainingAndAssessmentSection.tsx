@@ -1,8 +1,9 @@
-import { Anchor, Box, Image, ResponsiveContext, Text } from "grommet"
+import { Anchor, Box, ResponsiveContext, Text } from "grommet"
+import { LazyLoadImage } from "react-lazy-load-image-component"
 import { BaseSectionProps } from "./BaseSectionProps"
 import { BooksIcon, CertificateIcon } from "./Icons"
-import InfoBlocksSection, { InfoBlock } from "./InfoBlocksSection"
 import teacherPerformanceGraphicUrl from "./images/teacher-performance.png"
+import InfoBlocksSection, { InfoBlock } from "./InfoBlocksSection"
 
 const blocks: Array<InfoBlock> = [
   {
@@ -67,11 +68,12 @@ const blocks: Array<InfoBlock> = [
                   background="rgba(0, 0, 0, 0.05)"
                   round="24px"
                   pad={{ horizontal: "small" }}
-                  style={{
-                    maxWidth: ["medium", "large"].includes(size) ? 500 : "100%",
-                  }}
+                  style={{ maxWidth: ["medium", "large"].includes(size) ? 500 : "100%" }}
                 >
-                  <Image width="100%" height="auto" src={teacherPerformanceGraphicUrl} />
+                  <LazyLoadImage
+                    style={{ width: "100%", height: "auto" }}
+                    src={teacherPerformanceGraphicUrl}
+                  />
                 </Box>
               )}
             </ResponsiveContext.Consumer>

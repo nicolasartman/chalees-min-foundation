@@ -1,6 +1,7 @@
-import { Box, Button, Heading, Image, Text } from "grommet"
+import { Box, Button, Heading, Text } from "grommet"
 import { Next as NextIcon, Previous as PreviousIcon } from "grommet-icons"
 import { useKeenSlider } from "keen-slider/react"
+import { LazyLoadImage } from "react-lazy-load-image-component"
 import { BaseSectionProps } from "./BaseSectionProps"
 import bahujanLogoUrl from "./images/partners/bahujan-samajik-trust-logo.jpg"
 import deepalayaLogoUrl from "./images/partners/deepalaya-logo.jpg"
@@ -64,14 +65,15 @@ const OurPartnersSection = (props: BaseSectionProps) => {
               {partners.map((partner) => (
                 <div className="keen-slider__slide" key={partner.name}>
                   <Box direction="row" justify="center" align="end" fill>
-                    <Box direction="column" pad="medium">
-                      <Image
-                        alignSelf="center"
+                    <Box direction="column" pad="medium" align="center">
+                      <LazyLoadImage
                         src={partner.imageUrl}
-                        fit="contain"
-                        width="100%"
-                        height="auto"
-                        style={{ maxWidth: partner.maxWidth ?? 250 }}
+                        style={{
+                          objectFit: "contain",
+                          width: "100%",
+                          height: "auto",
+                          maxWidth: partner.maxWidth ?? 250,
+                        }}
                       />
                       <Box>
                         <Text textAlign="center" size="large">
