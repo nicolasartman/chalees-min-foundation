@@ -7,6 +7,7 @@ import bahujanLogoUrl from "./images/partners/bahujan-samajik-trust-logo.jpg"
 import deepalayaLogoUrl from "./images/partners/deepalaya-logo.jpg"
 import gujaratSealUrl from "./images/partners/gujarat-seal.jpg"
 import punjabSealUrl from "./images/partners/punjab-seal.jpg"
+import rajasthanSealUrl from "./images/partners/rajasthan-seal.jpg"
 import sahyogLogo from "./images/partners/sahyog-trust-logo.jpg"
 import sparshaTrustLogoUrl from "./images/partners/sparsha-trust-logo.jpg"
 import SectionContainer from "./SectionContainer"
@@ -18,6 +19,11 @@ type Partner = {
 }
 
 const partners: Array<Partner> = [
+  {
+    name: "Government of Rajasthan",
+    imageUrl: rajasthanSealUrl,
+    maxWidth: 100,
+  },
   {
     name: "Government of Punjab",
     imageUrl: punjabSealUrl,
